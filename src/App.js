@@ -1,23 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React, { useEffect } from "react";
+import Home from "./noautharea/pages/Home";
+import { Routes, Route } from "react-router-dom";
+import { UserServices } from "./services/UserService";
+import { useDispatch } from "react-redux";
+import Signup from "noautharea/pages/Signup";
+import Student from "noautharea/pages/Student";
+import "./App.css";
+// axios.defaults.baseURL = "http://localhost:8000/api/";
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    UserServices.getUser({ token: localStorage.getItem("token") })
+      .then(response => {
+        console.log("user information is", response.data.data);
+        dispatch({
+          type: "LOGIN",
+          payload: {
+            user: response.data.data[0],
+          },
+        });
+      })
+      .catch(error => {})
+      .finally(() => {});
+  }, []);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <UserInformation /> */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/instructor/signup" element={<Signup />} />
+        <Route path="/student/signup" element={<Student />} />
+      </Routes>
     </div>
   );
 }
