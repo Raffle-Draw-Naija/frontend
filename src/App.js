@@ -5,6 +5,7 @@ import { UserServices } from "./services/UserService";
 import { useDispatch } from "react-redux";
 import Signup from "noautharea/pages/Signup";
 import Student from "noautharea/pages/Student";
+import Login from "noautharea/pages/Login";
 import "./App.css";
 // axios.defaults.baseURL = "http://localhost:8000/api/";
 function App() {
@@ -27,9 +28,11 @@ function App() {
     <div className="App">
       {/* <UserInformation /> */}
       <Routes>
-        <Route path="/" element={<Home />} />
+       {/* <Route path="/" element={<Home />} />
         <Route path="/instructor/signup" element={<Signup />} />
-        <Route path="/student/signup" element={<Student />} />
+        <Route path="/student/signup" element={<Student />} /> 
+      */}
+        <Route path="/login" element={<Login />} />
       </Routes>
     </div>
   );
