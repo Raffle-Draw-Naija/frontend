@@ -71,8 +71,8 @@ const Login = () => {
                    />    
                 </Box>
                 <LogoTypo variant="h1">Welcome Back!</LogoTypo>
-                <Grid container spacing={2} style={{ marginLeft: isSmall ? '' : '33rem', display: 'grid' }}>
-                    <GridLogin item xs={12} md={3}>
+                <Grid container spacing={2} style={{ marginLeft: isSmall ? '3rem' : '33rem', display: 'grid' }}>
+                    <Grid item xs={11} lg={3}> 
                         <CustomInputBase
                             label="Email Address"
                             name="email"
@@ -86,17 +86,16 @@ const Login = () => {
                             cSize="lg"
                             data-testid="auth-email"
                             className="signin-email"
-                            id="signin-email"
-                        />
-                   </GridLogin>
-                    <GridLogin item xs={12} md={3}>
+                            id="signin-email" sideLabel={undefined} loading={undefined} endAdornment={undefined}                        />
+                   </Grid>
+                    <Grid item xs={11} lg={3}>
                         <PasswordTextField
                         password={password}
                         handleChange={handleChange}
                         passwordError={passwordError}
                         />
-                    </GridLogin>
-                    <GridLogin item xs={12} md={3}>
+                    </Grid>
+                    <Grid item xs={11} lg={3}>
                         <Button
                             data-testid="auth-button"
                             disabled={!validated}
@@ -112,7 +111,7 @@ const Login = () => {
                         >
                             {loading ? <CircularProgress size={18} /> : 'Login In'}
                         </Button>
-                    </GridLogin>
+                    </Grid>
                 </Grid>
             </Box>
         </Grid>

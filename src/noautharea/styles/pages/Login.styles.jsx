@@ -21,7 +21,7 @@ export const LogoTypo = styled(Typography)`
 
   @media (min-width: 992px) {
     font-size: 2.1vw;
-    margin: 2vw auto;
+    margin: 4vw auto;
   }
 
 
