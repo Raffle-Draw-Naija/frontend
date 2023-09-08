@@ -1,15 +1,20 @@
 import React, { useEffect } from "react";
-import Home from "./noautharea/pages/Home";
+import { useLocation } from 'react-router-dom';
 import { Routes, Route } from "react-router-dom";
 import { UserServices } from "./services/UserService";
 import { useDispatch } from "react-redux";
-import Signup from "noautharea/pages/Signup";
-import Student from "noautharea/pages/Student";
 import Login from "noautharea/pages/Login";
+import Dashboard from "autharea/pages/Dashboard";
+import NavigationContainer from "autharea/components/nagivation/navigationContainer";
+import { useMediaQuery } from '@mui/material';
+
 import "./App.css";
 // axios.defaults.baseURL = "http://localhost:8000/api/";
 function App() {
+  const isSmallScreen = useMediaQuery('(max-width: 991px)');
   const dispatch = useDispatch();
+  const location = useLocation();
+  const { pathname } = location;
   useEffect(() => {
     UserServices.getUser({ token: localStorage.getItem("token") })
       .then(response => {
@@ -26,13 +31,10 @@ function App() {
   }, []);
   return (
     <div className="App">
-      {/* <UserInformation /> */}
+    {pathname?.slice(1) === "login" ? null : <NavigationContainer />}
       <Routes>
-       {/* <Route path="/" element={<Home />} />
-        <Route path="/instructor/signup" element={<Signup />} />
-        <Route path="/student/signup" element={<Student />} /> 
-      */}
         <Route path="/login" element={<Login />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </div>
   );

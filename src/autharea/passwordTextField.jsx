@@ -5,7 +5,7 @@ import {
 } from '@mui/material';
 import {
   VisIcon, VisOffIcon
-} from './passwordTextField.styles';
+} from './styles/passwordTextField.styles';
 import CustomInputBase from '../noautharea/customComponents/customInputBase';
 
 const PasswordTextField = ({
@@ -40,13 +40,10 @@ const PasswordTextField = ({
             {showPassword ? <VisIcon /> : <VisOffIcon />}
           </IconButton>
         </InputAdornment>
-        )}
-      helperText={
-        passwordError
-          ? 'Should be atleast 8 characters. UPPERCASE, lowercase, letters & numbers'
-          : ' '
-      }
-    />
+      )}
+      helperText={passwordError
+        ? 'Should be atleast 8 characters. UPPERCASE, lowercase, letters & numbers'
+        : ' '} sideLabel={undefined} loading={undefined}    />
   );
 };
 
