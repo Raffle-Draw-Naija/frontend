@@ -7,15 +7,14 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import NativeSelect from '@mui/material/NativeSelect';
 
 
 const Dashboard = () =>  {
-  const [age, setAge] = useState('');
+  const [tag, setTag] = useState('');
   const isSmallScreen = useMediaQuery('(max-width: 991px)');
   const [satValue, setsatValue] = useState([]);
   const handleChange = (event) => {
-    setAge(event.target.value);
+    setTag(event.target.value);
   };
   const names = [
     'Keke Napepe',
@@ -36,8 +35,8 @@ const Dashboard = () =>  {
             <Select
               labelId="demo-select-small-label"
               id="demo-select-small"
-              value={age}
-              label="Age"
+              value={tag}
+              label="tag"
               onChange={handleChange}
             >
             {names.map((name) => (

@@ -68,3 +68,8 @@ export const NavbarContainer = styled(({
 export const NavRightMenu = styled(Grid)`
    display: flex;
 `;
+
+export const AppGrid = styled(Grid)`
+  display: flex;
+  justify-content: space-between;
+`;
