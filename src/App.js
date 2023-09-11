@@ -5,6 +5,7 @@ import { UserServices } from "./services/UserService";
 import { useDispatch } from "react-redux";
 import Login from "noautharea/pages/Login";
 import Dashboard from "autharea/pages/Dashboard";
+import RaffleStack from "autharea/pages/RaffleStack";
 import NavigationContainer from "autharea/components/nagivation/navigationContainer";
 import { useMediaQuery } from '@mui/material';
 
@@ -35,6 +36,7 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/raffle-stake" element={<RaffleStack />} />
       </Routes>
     </div>
   );
