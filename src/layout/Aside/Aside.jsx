@@ -6,39 +6,53 @@ import { BsTicketPerforated } from 'react-icons/bs'
 import { BsClipboardMinus } from 'react-icons/bs'
 import { RiSettingsLine } from 'react-icons/ri'
 import { BiLogOutCircle } from 'react-icons/bi'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 const Aside = () => {
     return (
         <nav className="aside">
-            <Link to="/dashboard/home" className="aside-logo">
+            <NavLink to="/" className="aside-logo">
                 <img src={Logo} alt="raffle9ja" />
-            </Link>
+            </NavLink>
             <ul>
-                <Link to="/dashboard/home" className="nav-link">
-                    <FiHome />
-                    Dashboard
-                </Link>
+                <li>
+                    <NavLink to="/dashboard/home" className="nav-link">
+                        <FiHome />
+                        Dashboard
+                    </NavLink>
+                </li>
 
-                <Link to="/dashboard/raffle" className="nav-link">
-                    <BsTicketPerforated />
-                    Raffle Stake
-                </Link>
+                <li>
+                    <NavLink to="/dashboard/raffleStake" className="nav-link">
+                        <BsTicketPerforated />
+                        Raffle Stake
+                    </NavLink>
+                </li>
 
-                <Link to="/dashboard/stake" className="active nav-link">
-                    <BsClipboardMinus />
-                    Stake Price
-                </Link>
+                <li>
+                    <NavLink
+                        to="/dashboard/stakePrice"
+                        className="nav-link"
+                        end
+                    >
+                        <BsClipboardMinus />
+                        Stake Price
+                    </NavLink>
+                </li>
 
-                <Link to="/dashboard/settings" className="nav-link">
-                    <RiSettingsLine />
-                    Settings
-                </Link>
+                <li>
+                    <NavLink to="/dashboard/settings" className="nav-link">
+                        <RiSettingsLine />
+                        Settings
+                    </NavLink>
+                </li>
 
-                <Link href="/logout" className="logout nav-link">
-                    <BiLogOutCircle />
-                    Logout
-                </Link>
+                <li>
+                    <NavLink href="/logout" className="logout nav-link">
+                        <BiLogOutCircle />
+                        Logout
+                    </NavLink>
+                </li>
             </ul>
         </nav>
     )

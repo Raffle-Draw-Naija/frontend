@@ -1,9 +1,10 @@
 import React from 'react'
+import './DashboardHome.scss'
 
 const DashboardHome = () => {
     return (
-        <div>
-            <h1 style={{ fontSize: '6rem' }}>Home</h1>
+        <div className="dashboard-home">
+            <h1>Home</h1>
         </div>
     )
 }

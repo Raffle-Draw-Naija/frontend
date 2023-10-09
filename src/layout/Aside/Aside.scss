@@ -35,7 +35,11 @@ $success: '#23AC00';
         list-style: none;
         width: 100%;
 
-        .nav-link {
+        li {
+            list-style: none;
+        }
+
+        a {
             padding: 10px 0 10px 16px;
             border-radius: 8px;
             text-decoration: none;
@@ -51,9 +55,10 @@ $success: '#23AC00';
             line-height: 140%;
             font-weight: 600;
 
-            &:active {
+            &.active {
                 background-color: #0000a5;
                 color: #ffffff;
+                font-weight: 700;
             }
 
             &:hover {
@@ -68,6 +73,11 @@ $success: '#23AC00';
             color: #f05a5a;
 
             &:hover {
+                background-color: #f05a5a;
+                color: #fff;
+            }
+
+            &.active {
                 background-color: #f05a5a;
                 color: #fff;
             }
