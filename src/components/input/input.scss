@@ -1,0 +1,34 @@
+@tailwind components;
+
+@layer components {
+    .input-group {
+        .success {
+            @apply text-success;
+        }
+        .error {
+            @apply text-danger;
+        }
+        label {
+            @apply text-custom-grey font-bold;
+        }
+        .input {
+            @apply border-custom-grey-3 text-custom-grey-2 active:border-blue-600 focus-within:border-blue-600;
+
+            &.success {
+                @apply border-success;
+            }
+            &.error {
+                @apply border-danger;
+            }
+
+            input,
+            textarea {
+                @apply flex-1 bg-transparent ring-0 border-0 outline-none placeholder-gray-300 focus:outline-none;
+
+                &.disabled {
+                    @apply text-gray-500 cursor-not-allowed;
+                }
+            }
+        }
+    }
+}
