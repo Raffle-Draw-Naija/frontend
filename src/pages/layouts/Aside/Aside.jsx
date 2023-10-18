@@ -1,6 +1,6 @@
 import React from 'react'
 import './Aside.scss'
-import Logo from '../../assets/Icon/raffleLogo.png'
+import Logo from '../../../assets/Icon/raffleLogo.png'
 import { FiHome } from 'react-icons/fi'
 import { BsTicketPerforated } from 'react-icons/bs'
 import { BsClipboardMinus } from 'react-icons/bs'

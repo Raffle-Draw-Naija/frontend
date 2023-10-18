@@ -3,10 +3,8 @@ import NotFound from "./pages/errors/NotFound";
 import SignIn from "./pages/auth/SignIn";
 import GuestLayout from "./pages/layouts/GuestLayout";
 import Index from "./pages/Index";
-import AppLayout from "./pages/layouts/AppLayout";
-
-import Dashboard from "./component/Dashboard/Layout";
-import Layout from "./component/Dashboard/Layout";
+import Layout from "./component/Layout";
+import Dashboard from "./pages/layouts/MainContent/Dashboard/Dashboard";
 
 const router = createBrowserRouter([
 	{
