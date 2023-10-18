@@ -1,8 +1,9 @@
-import Aside from '../pages/layouts/Aside/Aside'
+import Aside from '../../pages/layouts/Aside/Aside'
 import { Col, Row } from 'antd';
 // import MainContent from '../../layout/MainContent/MainContent'
 import { Outlet } from 'react-router-dom';
-import Navbar from '../pages/layouts/Navbar/Navbar';
+import Navbar from '../../pages/layouts/Navbar/Navbar';
+import "./Layout.scss"
 const Layout = () => {
     return (
         <div >
@@ -17,7 +18,9 @@ const Layout = () => {
                             <Navbar />
                         </Col>
                         <Col span={24}>
-                            <Outlet />
+                            <div className="outlet">
+                                <Outlet />
+                            </div>
                         </Col>
                     </Row>
                 </Col>

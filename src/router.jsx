@@ -3,8 +3,9 @@ import NotFound from "./pages/errors/NotFound";
 import SignIn from "./pages/auth/SignIn";
 import GuestLayout from "./pages/layouts/GuestLayout";
 import Index from "./pages/Index";
-import Layout from "./component/Layout";
+import Layout from "./component/Layouts/Layout";
 import Dashboard from "./pages/layouts/MainContent/Dashboard/Dashboard";
+import RaffleStake from "./pages/layouts/MainContent/RaffleStake/RaffleStake";
 
 const router = createBrowserRouter([
 	{
@@ -28,6 +29,11 @@ const router = createBrowserRouter([
 			{
 				path: "/dashboard",
 				element: <Dashboard />
+
+			},
+			{
+				path: "/raffle-stakes",
+				element: <RaffleStake />
 
 			},
 		],

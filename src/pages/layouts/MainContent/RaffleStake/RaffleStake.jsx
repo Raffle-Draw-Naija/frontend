@@ -1,13 +1,11 @@
-import React from 'react'
-import Dashboard from '../../Dashboard/Layout'
 
 const RaffleStake = () => {
     return (
-        <Dashboard>
+        <div>
             <div className="raffle-stake">
                 <h1>Raffle Stake</h1>
             </div>
-        </Dashboard>
+        </div>
     )
 }
 

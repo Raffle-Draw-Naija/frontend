@@ -4,9 +4,6 @@ import Dashboard from './component/Dashboard/Layout'
 import Home from './pages/Home'
 import SignIn from "./pages/auth/SignIn";
 import DashboardHome from './pages/layouts/MainContent/Dashboard/Dashboard'
-import RaffleStake from './component/DashboardRoute/RaffleStake/RaffleStake'
-import StakePrice from './component/DashboardRoute/StakePrice/StakePrice'
-import Settings from './component/DashboardRoute/Settings/Settings'
 
 function App() {
     return (
@@ -23,12 +20,6 @@ function App() {
                         </Dashboard>
                     }
                 />
-                <Route
-                    path="/dashboard/raffleStake"
-                    element={<RaffleStake />}
-                />
-                <Route path="/dashboard/stakePrice" element={<StakePrice />} />
-                <Route path="/dashboard/settings" element={<Settings />} />
             </Routes>
         </Router>
     )

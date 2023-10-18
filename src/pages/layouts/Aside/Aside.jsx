@@ -16,22 +16,22 @@ const Aside = () => {
             </NavLink>
             <ul>
                 <li>
-                    <NavLink to="/dashboard/home" className="nav-link">
+                    <NavLink to="/dashboard" className="nav-link">
                         <FiHome />
                         Dashboard
                     </NavLink>
                 </li>
 
                 <li>
-                    <NavLink to="/dashboard/raffleStake" className="nav-link">
+                    <NavLink to="/raffle-stakes" className="nav-link">
                         <BsTicketPerforated />
-                        Raffle Stake
+                        Raffle Stakes
                     </NavLink>
                 </li>
 
                 <li>
                     <NavLink
-                        to="/dashboard/stakePrice"
+                        to="/stakePrice"
                         className="nav-link"
                         end
                     >
@@ -41,7 +41,7 @@ const Aside = () => {
                 </li>
 
                 <li>
-                    <NavLink to="/dashboard/settings" className="nav-link">
+                    <NavLink to="/settings" className="nav-link">
                         <RiSettingsLine />
                         Settings
                     </NavLink>
