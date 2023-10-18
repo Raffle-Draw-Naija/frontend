@@ -1,6 +1,6 @@
 import React from 'react'
 import './StakePrice.scss'
-import Dashboard from '../../Dashboard/Dashboard'
+import Dashboard from '../../Dashboard/Layout'
 
 const StakePrice = () => {
     return (

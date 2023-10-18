@@ -1,8 +1,9 @@
 import './App.scss'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Dashboard from './component/Dashboard/Dashboard'
+import Dashboard from './component/Dashboard/Layout'
 import Home from './pages/Home'
-import DashboardHome from './pages/DashboardHome/DashboardHome'
+import SignIn from "./pages/auth/SignIn";
+import DashboardHome from './pages/DashboardHome/Dashboard'
 import RaffleStake from './component/DashboardRoute/RaffleStake/RaffleStake'
 import StakePrice from './component/DashboardRoute/StakePrice/StakePrice'
 import Settings from './component/DashboardRoute/Settings/Settings'
@@ -12,6 +13,7 @@ function App() {
         <Router>
             <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="/login" element={<SignIn />} />
                 <Route
                     exact
                     path="/dashboard/home"
