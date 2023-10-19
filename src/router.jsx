@@ -2,7 +2,7 @@ import { createBrowserRouter } from 'react-router-dom'
 import NotFound from './pages/errors/NotFound'
 import SignIn from './pages/auth/SignIn'
 import GuestLayout from './pages/layouts/GuestLayout'
-
+import Index from './pages/Index'
 import AppLayout from './pages/layouts/AppLayout'
 import Home from './pages/Home'
 import DashboardHome from './pages/DashboardHome/DashboardHome'
@@ -28,6 +28,8 @@ const router = createBrowserRouter([
             </Dashboard>
         ),
     },
+    { path: '/index', element: <Index /> },
+
     {
         path: '/dashboard/raffleStake',
         element: <RaffleStake />,
