@@ -5,21 +5,21 @@ import Button from '../../components/Button'
 import InputWrapper from '../../components/input/InputWrapper'
 import validateInputs from '../../components/input/validator'
 
-export default function SignIn() {
-    const usernameRef = useRef('')
+export default function OldSignIn() {
+    const nameRef = useRef('')
     const passwordRef = useRef('')
 
     const [loading, setLoading] = useState(false)
     const [showPassword, setShowPassword] = useState(false)
 
     const [formErrors, setFormErrors] = useState({
-        username: '',
+        name: '',
         password: ''
     })
 
     const getFormData = () => {
         return {
-            username: usernameRef.current?.value ?? '',
+            name: nameRef.current?.value ?? '',
             password: passwordRef.current?.value ?? '',
         }
     }
@@ -48,12 +48,17 @@ export default function SignIn() {
         }
     }
 
-    const { username: username_err, password: password_err } = formErrors
+    const { name: name_err, password: password_err } = formErrors
 
     return (
         <>
             <div className="flex flex-col items-center gap-2 w-[80%] text-center">
-                <h1 className='text-2xl md:text-4xl text-dark font-extrabold'>Welcome Back!</h1>
+                <h1 className='text-2xl text-dark font-extrabold'>Welcome Back!</h1>
+                <p>To keep connected with us please login with your personal info</p>
+            </div>
+
+            <div className="">
+                <img src={SignInLogo} alt='Sign In' />
             </div>
 
             {/* Login Form */}
@@ -61,18 +66,18 @@ export default function SignIn() {
                 <div className="flex flex-col gap-4 w-full">
                     {/* Input Fields */}
                     <div className="flex flex-col gap-6 w-full">
-                        {/* Username Input */}
+                        {/* Name Input */}
                         <InputWrapper
-                            id='username'
+                            id='name'
                             type='text'
-                            label='Username'
-                            error_msg={username_err}
+                            label='Name'
+                            error_msg={name_err}
                         >
                             <input
                                 type='text'
-                                id='username'
-                                placeholder='Enter your username'
-                                ref={usernameRef}
+                                id='name'
+                                placeholder='Enter your name'
+                                ref={nameRef}
                                 maxLength={255}
                             />
                         </InputWrapper>
@@ -95,6 +100,11 @@ export default function SignIn() {
                             />
                         </InputWrapper>
                     </div>
+
+                    {/* Forgot Password */}
+                    <div className="flex flex-col items-end w-full">
+                        <Link className='text-primary text-sm font-semibold' to={'/forgot-password'}>Forgot password</Link>
+                    </div>
                 </div>
 
                 {/* Action buttons */}
@@ -106,6 +116,11 @@ export default function SignIn() {
                     >
                         Submit
                     </Button>
+
+                    <p className='text-sm'>
+                        Don&lsquo;t have an account yet?&nbsp;
+                        <Link className='text-primary font-semibold' to={'/sign-up'}>Sign up here</Link>
+                    </p>
                 </div>
             </form>
         </>
