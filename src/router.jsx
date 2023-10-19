@@ -4,8 +4,8 @@ import SignIn from "./pages/auth/SignIn";
 import GuestLayout from "./pages/layouts/GuestLayout";
 import Index from "./pages/Index";
 import Layout from "./component/Layouts/Layout";
-import Dashboard from "./pages/layouts/MainContent/Dashboard/Dashboard";
-import RaffleStake from "./pages/layouts/MainContent/RaffleStake/RaffleStake";
+import Dashboard from "./pages/MainContent/Dashboard/Dashboard";
+import RaffleStake from "./pages/MainContent/RaffleStake/RaffleStake";
 
 const router = createBrowserRouter([
 	{
