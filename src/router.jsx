@@ -22,7 +22,7 @@ const remoteRoutes = [
         children: [],
     },
     {
-        path: '/g',
+        path: '/',
         element: <GuestLayout />,
         children: [
             {
