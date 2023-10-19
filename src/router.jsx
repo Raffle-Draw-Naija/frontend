@@ -11,7 +11,33 @@ import RaffleStake from './component/DashboardRoute/RaffleStake/RaffleStake'
 import StakePrice from './component/DashboardRoute/StakePrice/StakePrice'
 import Settings from './component/DashboardRoute/Settings/Settings'
 
-const router = createBrowserRouter([
+const remoteRoutes = [
+    {
+        path: '/index',
+        element: <Index />,
+    },
+    {
+        path: '/app',
+        element: <AppLayout />,
+        children: [],
+    },
+    {
+        path: '/g',
+        element: <GuestLayout />,
+        children: [
+            {
+                path: '/login',
+                element: <SignIn />,
+            },
+        ],
+    },
+    {
+        path: '*',
+        element: <NotFound />,
+    },
+]
+
+const localRoutes = [
     {
         path: '/',
         element: <Home />,
@@ -28,8 +54,6 @@ const router = createBrowserRouter([
             </Dashboard>
         ),
     },
-    { path: '/index', element: <Index /> },
-
     {
         path: '/dashboard/raffleStake',
         element: <RaffleStake />,
@@ -42,25 +66,10 @@ const router = createBrowserRouter([
         path: '/dashboard/settings',
         element: <Settings />,
     },
-    {
-        path: '/',
-        element: <AppLayout />,
-        children: [],
-    },
-    {
-        path: '/',
-        element: <GuestLayout />,
-        children: [
-            {
-                path: '/login',
-                element: <SignIn />,
-            },
-        ],
-    },
-    {
-        path: '*',
-        element: <NotFound />,
-    },
-])
+]
+
+const mergedRoutes = [...remoteRoutes, ...localRoutes]
+
+const router = createBrowserRouter(mergedRoutes)
 
 export default router
