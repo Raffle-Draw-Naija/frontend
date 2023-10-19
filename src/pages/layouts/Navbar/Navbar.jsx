@@ -2,20 +2,34 @@ import React, { useState } from 'react'
 import './Navbar.scss'
 import { SlArrowDown, SlArrowUp } from 'react-icons/sl'
 import { TbFilterCog } from 'react-icons/tb'
+import SearchInput from '../../../components/input/SearchInput'
 
 const Navbar = () => {
+    const [inputSearch, setInputSearch] = useState('')
     const [isOpen, setIsOpen] = useState(false)
 
     const toggleDropdown = () => {
         setIsOpen(!isOpen)
     }
+
+    const handleInputSearch = (e) => {
+        setInputSearch(e.target.value)
+        console.log(inputSearch)
+    }
+    const handleInputClick = () => {
+        // Handle the input click event here
+        console.log('Input clicked!')
+    }
+
     return (
         <nav className="px-[49px] border-b border-[#EAEEF4] flex items-center justify-between h-[90px]  w-[100%]">
             <div className="flex items-center w-[100%] flex-grow-1 h-[50px] gap-[25px] text-[#2E2E7A]">
-                <input
-                    type="text"
-                    className="text-[16px] leading-[21.86px] text-[#979797] w-[280px] h-[90%] rounded-[30px] pl-[25px] bg-[#F5F7FB] border focus:outline-[#EAEEF4]"
-                    placeholder="Search..."
+                <SearchInput
+                    className={`text-[16px] leading-[21.86px] text-[#979797] w-[280px] h-[90%] rounded-[8px] pl-[25px] bg-[#F5F7FB] border focus:outline-[#EAEEF4]`}
+                    placeholder={`Search...`}
+                    value={inputSearch}
+                    onChange={handleInputSearch}
+                    onClick={handleInputClick}
                 />
                 <div
                     className="relative inline-block text-left h-[50px] w-[235px] rounded-[30px]"
@@ -60,7 +74,7 @@ const Navbar = () => {
                     <TbFilterCog className="text-[#888]" />
                 </div>
             </div>
-            <div className="flex flex-grow-0 items-center w-[117px]">
+            <div className="flex flex-grow-0 items-center w-[117px] gap-2">
                 <div className="w-[40px] h-[40px]">
                     <img
                         src=""
