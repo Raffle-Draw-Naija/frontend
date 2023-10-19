@@ -23,6 +23,12 @@ const Aside = () => {
                 </li>
 
                 <li>
+                    <NavLink to="/raffle-draws" className="nav-link">
+                        <RiSettingsLine />
+                        Active Raffle Draws
+                    </NavLink>
+                </li>
+                <li>
                     <NavLink to="/raffle-stakes" className="nav-link">
                         <BsTicketPerforated />
                         Raffle Stakes
@@ -37,6 +43,13 @@ const Aside = () => {
                     >
                         <BsClipboardMinus />
                         Stake Price
+                    </NavLink>
+                </li>
+
+                <li>
+                    <NavLink to="/winning-tags" className="nav-link">
+                        <RiSettingsLine />
+                        Winning Tags
                     </NavLink>
                 </li>
 

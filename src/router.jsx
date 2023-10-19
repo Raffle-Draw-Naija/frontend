@@ -6,6 +6,12 @@ import Index from "./pages/Index";
 import Layout from "./component/Layouts/Layout";
 import Dashboard from "./pages/layouts/MainContent/Dashboard/Dashboard";
 import RaffleStake from "./pages/layouts/MainContent/RaffleStake/RaffleStake";
+import WinningTags from "./pages/layouts/MainContent/WinningTags/WinningTags";
+import EditWinningTags from "./pages/layouts/MainContent/WinningTags/EditWinningTags";
+import StartADraw from "./pages/layouts/MainContent/StartADraw/startADraw";
+import { ToastContainer, toast } from 'react-toastify';
+import ActiveRaffleDraws from "./pages/layouts/MainContent/StartADraw/ActiveRaffleDraws";
+
 
 const router = createBrowserRouter([
 	{
@@ -36,6 +42,25 @@ const router = createBrowserRouter([
 				element: <RaffleStake />
 
 			},
+			{
+				path: "/raffle-draws",
+				element: <ActiveRaffleDraws />
+
+			},
+			{
+				path: "/winning-tags",
+				element: <WinningTags />
+			},
+			{
+				path: "/winning-tag/edit/:id",
+				element: <EditWinningTags />
+
+			},
+			{
+				path: "/start-a-draw",
+				element: <StartADraw />
+
+			}
 		],
 	},
 	{
