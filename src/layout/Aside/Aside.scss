@@ -13,6 +13,10 @@ $success: '#23AC00';
     align-items: flex-start;
     justify-content: flex-start;
     padding: 50px 22px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
 
     .aside-logo {
         width: 100px;

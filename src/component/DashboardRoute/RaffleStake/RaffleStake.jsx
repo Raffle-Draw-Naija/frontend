@@ -5,7 +5,7 @@ import Navbar from '../../../pages/layouts/Navbar/Navbar'
 const RaffleStake = () => {
     return (
         <Dashboard>
-            <div className="raffle-stake">
+            <div className="relative top-[90px] left-0">
                 <Navbar />
                 <h1>Raffle Stake</h1>
             </div>

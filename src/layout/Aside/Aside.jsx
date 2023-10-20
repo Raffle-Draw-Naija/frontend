@@ -4,7 +4,7 @@ import Logo from '../../assets/Icon/raffleLogo.png'
 import { FiHome } from 'react-icons/fi'
 import { BsTicketPerforated } from 'react-icons/bs'
 import { BsClipboardMinus } from 'react-icons/bs'
-import { RiSettingsLine } from 'react-icons/ri'
+import { RiArchiveDrawerLine, RiWalletLine } from 'react-icons/ri'
 import { BiLogOutCircle } from 'react-icons/bi'
 import { NavLink } from 'react-router-dom'
 
@@ -41,9 +41,16 @@ const Aside = () => {
                 </li>
 
                 <li>
-                    <NavLink to="/dashboard/settings" className="nav-link">
-                        <RiSettingsLine />
-                        Settings
+                    <NavLink to="/dashboard/raffledraw" className="nav-link">
+                        <RiArchiveDrawerLine />
+                        Raffle Draw
+                    </NavLink>
+                </li>
+
+                <li>
+                    <NavLink to="/dashboard/wallet" className="nav-link">
+                        <RiWalletLine />
+                        Wallet
                     </NavLink>
                 </li>
 

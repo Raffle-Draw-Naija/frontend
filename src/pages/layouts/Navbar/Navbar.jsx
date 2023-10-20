@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import './Navbar.scss'
 import { SlArrowDown, SlArrowUp } from 'react-icons/sl'
 import { TbFilterCog } from 'react-icons/tb'
 import SearchInput from '../../../components/input/SearchInput'
 
 const Navbar = () => {
+    const location = useLocation()
     const [inputSearch, setInputSearch] = useState('')
     const [isOpen, setIsOpen] = useState(false)
 
@@ -22,8 +24,14 @@ const Navbar = () => {
     }
 
     return (
-        <nav className="px-[49px] border-b border-[#EAEEF4] flex items-center justify-between h-[90px]  w-[100%]">
-            <div className="flex items-center w-[100%] flex-grow-1 h-[50px] gap-[25px] text-[#2E2E7A]">
+        <nav className="fixed top-0 z-10 px-[49px] border-b border-[#EAEEF4] flex items-center justify-between h-[90px] w-[80%] bg-[#FFF]">
+            <div
+                className={`${
+                    location.pathname === '/dashboard/raffleStake'
+                        ? 'visible'
+                        : 'hidden'
+                }  flex items-center w-[100%] flex-grow-1 h-[50px] gap-[25px] text-[#2E2E7A]`}
+            >
                 <SearchInput
                     className={`text-[16px] leading-[21.86px] text-[#979797] w-[280px] h-[90%] rounded-[8px] pl-[25px] bg-[#F5F7FB] border focus:outline-[#EAEEF4]`}
                     placeholder={`Search...`}
@@ -74,7 +82,8 @@ const Navbar = () => {
                     <TbFilterCog className="text-[#888]" />
                 </div>
             </div>
-            <div className="flex flex-grow-0 items-center w-[117px] gap-2">
+
+            <div className="ml-auto flex flex-grow-0 items-center w-[117px] gap-2">
                 <div className="w-[40px] h-[40px]">
                     <img
                         src=""

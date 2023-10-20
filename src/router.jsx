@@ -9,7 +9,8 @@ import DashboardHome from './pages/DashboardHome/DashboardHome'
 import Dashboard from './component/Dashboard/Dashboard'
 import RaffleStake from './component/DashboardRoute/RaffleStake/RaffleStake'
 import StakePrice from './component/DashboardRoute/StakePrice/StakePrice'
-import Settings from './component/DashboardRoute/Settings/Settings'
+import RaffleDraw from './component/DashboardRoute/RaffleDraw/RaffleDraw'
+import Wallet from './component/DashboardRoute/Wallet/Wallet'
 
 const remoteRoutes = [
     {
@@ -63,8 +64,12 @@ const localRoutes = [
         element: <StakePrice />,
     },
     {
-        path: '/dashboard/settings',
-        element: <Settings />,
+        path: '/dashboard/raffledraw',
+        element: <RaffleDraw />,
+    },
+    {
+        path: '/dashboard/wallet',
+        element: <Wallet />,
     },
 ]
 
