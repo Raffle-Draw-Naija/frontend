@@ -45,9 +45,8 @@ const Navbar = () => {
                         </button>
                     </div>
                     <div
-                        className={`origin-top-right absolute left-3 mt-2 w-[90%] rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 transition-all ease-in-out duration-1000 ${
-                            isOpen ? 'block' : 'hidden'
-                        }`}
+                        className={`origin-top-right absolute left-3 mt-2 w-[90%] rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 transition-all ease-in-out duration-1000 ${isOpen ? 'block' : 'hidden'
+                            }`}
                     >
                         <button
                             type="button"
