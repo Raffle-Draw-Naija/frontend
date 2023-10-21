@@ -3,7 +3,7 @@ import NotFound from "./pages/errors/NotFound";
 import SignIn from "./pages/auth/SignIn";
 import GuestLayout from "./pages/layouts/GuestLayout";
 import Index from "./pages/Index";
-import Layout from "./component/Layouts/Layout";
+import Layout from "./pages/layouts/AppLayout/Layout";
 import Dashboard from "./pages/MainContent/Dashboard/Dashboard";
 import RaffleStake from "./pages/MainContent/RaffleStake/RaffleStake";
 import Wallet from "./pages/MainContent/Wallet/Wallet";
