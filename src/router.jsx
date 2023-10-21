@@ -6,6 +6,7 @@ import Index from "./pages/Index";
 import Layout from "./component/Layouts/Layout";
 import Dashboard from "./pages/MainContent/Dashboard/Dashboard";
 import RaffleStake from "./pages/MainContent/RaffleStake/RaffleStake";
+import Wallet from "./pages/MainContent/Wallet/Wallet";
 
 const router = createBrowserRouter([
 	{
@@ -29,12 +30,14 @@ const router = createBrowserRouter([
 			{
 				path: "/dashboard",
 				element: <Dashboard />
-
 			},
 			{
 				path: "/raffle-stakes",
 				element: <RaffleStake />
-
+			},
+			{
+				path: "/wallet",
+				element: <Wallet />
 			},
 		],
 	},

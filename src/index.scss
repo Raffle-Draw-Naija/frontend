@@ -40,3 +40,15 @@
       }
   }
 }
+
+.badge{
+  @apply py-1 px-3 text-center;
+}
+
+.badge-success{
+  @apply bg-success-light text-success;
+}
+
+.badge-warning{
+  @apply bg-warning-light text-warning;
+}
