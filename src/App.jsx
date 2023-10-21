@@ -1,17 +1,16 @@
 import './App.scss'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Dashboard from './component/Dashboard/Dashboard'
+import Dashboard from './component/Dashboard/Layout'
 import Home from './pages/Home'
-import DashboardHome from './pages/DashboardHome/DashboardHome'
-import RaffleStake from './component/DashboardRoute/RaffleStake/RaffleStake'
-import StakePrice from './component/DashboardRoute/StakePrice/StakePrice'
-import Settings from './component/DashboardRoute/Settings/Settings'
+import SignIn from "./pages/auth/SignIn";
+import DashboardHome from './pages/layouts/MainContent/Dashboard/Dashboard'
 
 function App() {
     return (
         <Router>
             <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="/login" element={<SignIn />} />
                 <Route
                     exact
                     path="/dashboard/home"
@@ -21,12 +20,6 @@ function App() {
                         </Dashboard>
                     }
                 />
-                <Route
-                    path="/dashboard/raffleStake"
-                    element={<RaffleStake />}
-                />
-                <Route path="/dashboard/stakePrice" element={<StakePrice />} />
-                <Route path="/dashboard/settings" element={<Settings />} />
             </Routes>
         </Router>
     )
