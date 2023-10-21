@@ -1,9 +1,9 @@
 import { Col, Row, Table } from 'antd';
-import StakeComponent from '../../../../component/StakeComponent';
-import { StakeServices } from '../../../../../services/StakeService';
+// import StakeComponent from '../../../component/StakeComponent';
+import { StakeServices } from '../../../../services/StakeService';
 import { useEffect, useState } from 'react';
-import check from "../../../../assets/Icon/check.png"
-import close from "../../../../assets/Icon/close.png"
+import check from "../../../assets/Icon/check.png"
+import close from "../../../assets/Icon/close.png"
 
 const RaffleStake = () => {
 

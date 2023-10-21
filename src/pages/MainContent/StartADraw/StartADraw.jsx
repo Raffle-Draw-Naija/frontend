@@ -1,8 +1,8 @@
 
 import { useEffect, useState } from 'react';
 import { Button, Form, Card, Select, DatePicker, Input } from 'antd';
-import { CategoryServices } from '../../../../../services/CategoryService';
-import { StakeServices } from '../../../../../services/StakeService';
+import { CategoryServices } from '../../../../services/CategoryService';
+import { StakeServices } from '../../../../services/StakeService';
 import Swal from 'sweetalert2'
 import { ToastContainer, toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";

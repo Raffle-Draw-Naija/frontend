@@ -16,7 +16,7 @@ import RaffleStake from "./pages/MainContent/RaffleStake/RaffleStake";
 import Wallet from "./pages/MainContent/Wallet/Wallet";
 import WinningTags from "./pages/MainContent/WinningTags/WinningTags";
 import EditWinningTags from "./pages/MainContent/WinningTags/EditWinningTags";
-import StartADraw from "./pages/MainContent/StartADraw/startADraw";
+import StartADraw from "./pages/MainContent/StartADraw/StartADraw";
 // import { ToastContainer, toast } from 'react-toastify';
 import ActiveRaffleDraws from "./pages/MainContent/StartADraw/ActiveRaffleDraws";
 import BankAccounts from "./pages/MainContent/BankAccounts/BankAccounts";

@@ -1,8 +1,8 @@
 
 import { Col, Popconfirm, Row, Table } from 'antd';
 import { useEffect, useState } from 'react';
-import { StakeServices } from '../../../../../services/StakeService';
-import StakeComponent from '../../../../component/StakeComponent';
+import { StakeServices } from '../../../../services/StakeService';
+import StakeComponent from '../../../component/StakeComponent';
 
 import { ToastContainer, toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
