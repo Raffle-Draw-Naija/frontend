@@ -3,6 +3,7 @@ import './StakePrice.scss'
 import Dashboard from '../../Dashboard/Layout'
 
 const StakePrice = () => {
+
     return (
         <Dashboard>
             <div className="stake-price">

@@ -61,6 +61,11 @@ const ActiveRaffleDraws = () => {
             key: 'year',
         },
         {
+            title: 'Win No',
+            dataIndex: 'win_nos',
+            key: 'win_no',
+        },
+        {
             title: 'Status',
             dataIndex: 'status',
 

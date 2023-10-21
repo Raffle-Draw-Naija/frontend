@@ -1,9 +1,9 @@
 
 import { useEffect, useState } from 'react';
-import { Button, Form, Card, Select, DatePicker } from 'antd';
+import { Button, Form, Card, Select, DatePicker, Input } from 'antd';
 import { CategoryServices } from '../../../../../services/CategoryService';
 import { StakeServices } from '../../../../../services/StakeService';
-import { useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2'
 import { ToastContainer, toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 
@@ -12,9 +12,7 @@ const StartADraw = () => {
     const [categories, setCategories] = useState([])
     const [winningTags, setWinningTags] = useState([])
     const [formData, setFormData] = useState({})
-    const [validationErrors, setValidationErrors] = useState([])
     const [loading, setLoading] = useState(false)
-    const navigate = useNavigate();
 
     const [form] = Form.useForm();
     const [formLayout, setFormLayout] = useState('vertical');
@@ -28,17 +26,20 @@ const StartADraw = () => {
 
             const res = await CategoryServices.getCategories();
             setCategories(res.data.Categories)
+            console.log(res.data.Categories)
         }
         getCategories()
     }, []);
-    const notify = () => toast("Raffle Draw Started Successfully..");
-
 
     const onChange = (date, dateString) => {
         console.log(dateString);
         setFormData({ ...formData, start_date: dateString })
     };
 
+
+    const onWinNumberChange = async (e) => {
+        setFormData({ ...formData, win_nos: e.target.value })
+    };
     const onWinningTagChange = async (value) => {
         const res = await CategoryServices.getWinningTags(value);
         setWinningTags(res.data.data)
@@ -56,13 +57,18 @@ const StartADraw = () => {
             const startADraw = await StakeServices.startADraw(formData)
             if (startADraw.status == 200) {
                 setLoading(false)
-                navigate("/raffle-draws");
+                // navigate("/raffle-draws");
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Raffle Draw Created Successfully.',
+                    icon: 'success',
+                    confirmButtonText: 'Ok'
+                })
             }
         } catch (error) {
-            setValidationErrors(error.response.data.errors)
-            console.log("error", validationErrors);
             setLoading(false)
         }
+
     };
 
 
@@ -96,6 +102,7 @@ const StartADraw = () => {
                         <Select
                             placeholder="Select a option and change input text above"
                             onChange={onWinningTagChange}
+                            value={setFormData || ''}
                             allowClear
                         >
                             {
@@ -106,10 +113,25 @@ const StartADraw = () => {
                         </Select>
 
                     </Form.Item>
+
                     <Form.Item name="start_date" label="Select Date" rules={[{ required: true }]} labelCol={{ span: 24 }}>
                         <DatePicker format="YYYY-MM-DD" onChange={onChange} className='w-100' />
                     </Form.Item>
 
+                    <Form.Item
+                        label="Type Win Number"
+                        name="win_nos"
+                        onChange={onWinNumberChange}
+                        rules={[
+                            {
+                                required: true,
+                                message: 'Win Number is Required',
+                            },
+                        ]}
+                        labelCol={{ span: 24 }}
+                    >
+                        <Input />
+                    </Form.Item>
                     <Form.Item>
                         <Button htmlType="submit" className='btn btn-primary w-100'>
                             {

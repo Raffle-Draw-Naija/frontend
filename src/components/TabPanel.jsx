@@ -20,7 +20,6 @@ const TabPanel = ({ id }) => {
         {
             key: '1',
             label: (
-
                 <NavLink
                     to="/winning-tag/edit/3"
                     className="nav-link"

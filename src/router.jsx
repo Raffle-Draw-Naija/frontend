@@ -11,6 +11,7 @@ import EditWinningTags from "./pages/layouts/MainContent/WinningTags/EditWinning
 import StartADraw from "./pages/layouts/MainContent/StartADraw/startADraw";
 import { ToastContainer, toast } from 'react-toastify';
 import ActiveRaffleDraws from "./pages/layouts/MainContent/StartADraw/ActiveRaffleDraws";
+import BankAccounts from "./pages/layouts/BankAccounts/BankAccounts";
 
 
 const router = createBrowserRouter([
@@ -59,6 +60,11 @@ const router = createBrowserRouter([
 			{
 				path: "/start-a-draw",
 				element: <StartADraw />
+
+			},
+			{
+				path: "/bank-accounts",
+				element: <BankAccounts />
 
 			}
 		],

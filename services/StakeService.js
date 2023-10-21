@@ -12,6 +12,9 @@ class StakeService {
     stopDraws(data) {
         return RequestHandler.publish(API_URLS.draw.stop, data)
     }
+    getAllStakes() {
+        return RequestHandler.get(API_URLS.stakes.all)
+    }
 }
 
 export const StakeServices = new StakeService()

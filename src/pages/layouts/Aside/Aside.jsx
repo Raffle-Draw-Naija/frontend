@@ -1,4 +1,3 @@
-import React from 'react'
 import './Aside.scss'
 import Logo from '../../../assets/Icon/raffleLogo.png'
 import { FiHome } from 'react-icons/fi'
@@ -34,22 +33,16 @@ const Aside = () => {
                         Raffle Stakes
                     </NavLink>
                 </li>
-
-                <li>
-                    <NavLink
-                        to="/stakePrice"
-                        className="nav-link"
-                        end
-                    >
-                        <BsClipboardMinus />
-                        Stake Price
-                    </NavLink>
-                </li>
-
                 <li>
                     <NavLink to="/winning-tags" className="nav-link">
                         <RiSettingsLine />
                         Winning Tags
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink to="/bank-accounts" className="nav-link">
+                        <RiSettingsLine />
+                        Bank Accounts
                     </NavLink>
                 </li>
 

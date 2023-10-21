@@ -22,4 +22,7 @@ export const API_URLS = {
         all: 'admin/get-all-draw',
         stop: 'admin/stop-raffle-draw',
     },
+    stakes: {
+        all: 'admin/customer/stakes',
+    },
 }
