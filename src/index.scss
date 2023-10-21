@@ -4,51 +4,66 @@
 @tailwind components;
 @tailwind utilities;
 
-
 :root {
-  font-family: 'Manrope', sans-serif;
-  /* // font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; */
-  line-height: 1.5;
-  color: #2B2B2B;
+    font-family: 'Manrope', sans-serif;
+    /* // font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; */
+    line-height: 1.5;
+    color: #2b2b2b;
 
-  /* // color-scheme: light dark;
+    /* // color-scheme: light dark;
   // color: rgba(255, 255, 255, 0.87);
   // background-color: #242424; */
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
 }
 
-*{
-  font-weight: 400;
-  font-size: 16px;
-  letter-spacing: .4px;
+* {
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: 0.4px;
 }
 
 .animate-spin-reverse {
-  animation: spin 1s linear infinite;
+    animation: spin 1s linear infinite;
 
-  @keyframes spin {
-      from {
-          transform: rotate(360deg);
-      }
-      to {
-          transform: rotate(0deg);
-      }
-  }
+    @keyframes spin {
+        from {
+            transform: rotate(360deg);
+        }
+        to {
+            transform: rotate(0deg);
+        }
+    }
 }
 
-.badge{
-  @apply py-1 px-3 text-center;
+.ant-btn-primary,
+.btn-primary {
+    background-color: #0000a5;
+    &:hover {
+        background-color: #4848ce;
+    }
+}
+.main-content {
+    height: 70vh !important;
+}
+form .btn-primary {
+    height: 3rem;
 }
 
-.badge-success{
-  @apply bg-success-light text-success;
+
+// Badge styles
+.badge {
+    @apply py-1 px-3 text-center;
 }
 
-.badge-warning{
-  @apply bg-warning-light text-warning;
+.badge-success {
+    @apply bg-success-light text-success;
+}
+
+.badge-warning {
+    @apply bg-warning-light text-warning;
 }

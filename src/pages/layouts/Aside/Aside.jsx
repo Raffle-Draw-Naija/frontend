@@ -1,4 +1,3 @@
-import React from 'react'
 import './Aside.scss'
 import Logo from '../../../assets/Icon/raffleLogo.png'
 import { BiLogOutCircle } from 'react-icons/bi'
@@ -11,6 +10,7 @@ const Aside = () => {
             <NavLink to="/" className="aside-logo">
                 <img src={Logo} alt="raffle9ja" />
             </NavLink>
+            
             <ul>
                 {routes.map(({route, Icon, label}) => (
                     <li key={route}>

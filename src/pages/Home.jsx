@@ -10,7 +10,7 @@ const Home = () => {
         const delay = 3000
 
         const timeOut = setTimeout(() => {
-            navigate('/dashboard/home')
+            navigate('/dashboard')
         }, delay)
 
         return () => {
