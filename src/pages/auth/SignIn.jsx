@@ -87,7 +87,7 @@ export default function SignIn() {
                             error_msg={password_err}
                         >
                             <input
-                                type='password'
+                                type={showPassword ? 'text': 'password'}
                                 id='password'
                                 placeholder='Enter your password'
                                 ref={passwordRef}
