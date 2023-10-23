@@ -40,13 +40,6 @@ const Aside = () => {
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to="/bank-accounts" className="nav-link">
-                        <RiSettingsLine />
-                        Bank Accounts
-                    </NavLink>
-                </li>
-
-                <li>
                     <NavLink to="/settings" className="nav-link">
                         <RiSettingsLine />
                         Settings

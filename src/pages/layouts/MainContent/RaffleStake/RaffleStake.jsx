@@ -40,6 +40,11 @@ const RaffleStake = () => {
             key: 'date',
         },
         {
+            title: 'Pay Method',
+            dataIndex: 'payment_method',
+            key: 'payment_method',
+        },
+        {
             title: 'Ticket ID',
             dataIndex: 'ticketId',
             key: 'ticketId',

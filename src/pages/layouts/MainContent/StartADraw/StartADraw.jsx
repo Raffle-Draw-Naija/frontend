@@ -102,7 +102,6 @@ const StartADraw = () => {
                         <Select
                             placeholder="Select a option and change input text above"
                             onChange={onWinningTagChange}
-                            value={setFormData || ''}
                             allowClear
                         >
                             {
@@ -122,6 +121,7 @@ const StartADraw = () => {
                         label="Type Win Number"
                         name="win_nos"
                         onChange={onWinNumberChange}
+                        value={setFormData || ''}
                         rules={[
                             {
                                 required: true,
