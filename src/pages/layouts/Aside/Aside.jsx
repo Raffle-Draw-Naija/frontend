@@ -2,12 +2,21 @@ import './Aside.scss'
 import Logo from '../../../assets/Icon/raffleLogo.png'
 import { FiHome } from 'react-icons/fi'
 import { BsTicketPerforated } from 'react-icons/bs'
-import { BsClipboardMinus } from 'react-icons/bs'
 import { RiSettingsLine } from 'react-icons/ri'
 import { BiLogOutCircle } from 'react-icons/bi'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { logout } from '../../../redux/userSlice'
 
 const Aside = () => {
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+    const navLogout = () => {
+        dispatch(logout())
+        console.log('logout');
+        navigate("/login")
+
+    }
     return (
         <nav className="aside">
             <NavLink to="/" className="aside-logo">
@@ -47,10 +56,10 @@ const Aside = () => {
                 </li>
 
                 <li>
-                    <NavLink href="/logout" className="logout nav-link">
+                    <div onClick={navLogout} className="logout nav-link">
                         <BiLogOutCircle />
                         Logout
-                    </NavLink>
+                    </div>
                 </li>
             </ul>
         </nav>

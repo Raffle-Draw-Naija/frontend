@@ -12,6 +12,7 @@ import StartADraw from "./pages/layouts/MainContent/StartADraw/startADraw";
 import { ToastContainer, toast } from 'react-toastify';
 import ActiveRaffleDraws from "./pages/layouts/MainContent/StartADraw/ActiveRaffleDraws";
 import BankAccounts from "./pages/layouts/BankAccounts/BankAccounts";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 
 const router = createBrowserRouter([
@@ -31,7 +32,11 @@ const router = createBrowserRouter([
 	},
 	{
 		path: "/",
-		element: <Layout />,
+		element: (
+			<ProtectedRoute>
+				<Layout />
+			</ProtectedRoute>
+		),
 		children: [
 			{
 				path: "/dashboard",

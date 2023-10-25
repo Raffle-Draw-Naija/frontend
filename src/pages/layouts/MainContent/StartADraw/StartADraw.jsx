@@ -6,6 +6,7 @@ import { StakeServices } from '../../../../../services/StakeService';
 import Swal from 'sweetalert2'
 import { ToastContainer, toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from 'react-router-dom';
 
 const { Option } = Select;
 const StartADraw = () => {
@@ -13,6 +14,7 @@ const StartADraw = () => {
     const [winningTags, setWinningTags] = useState([])
     const [formData, setFormData] = useState({})
     const [loading, setLoading] = useState(false)
+    const navigate = useNavigate();
 
     const [form] = Form.useForm();
     const [formLayout, setFormLayout] = useState('vertical');
@@ -63,6 +65,8 @@ const StartADraw = () => {
                     text: 'Raffle Draw Created Successfully.',
                     icon: 'success',
                     confirmButtonText: 'Ok'
+                }).then(() => {
+                    navigate("/raffle-draws")
                 })
             }
         } catch (error) {

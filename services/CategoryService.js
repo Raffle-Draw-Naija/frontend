@@ -11,6 +11,9 @@ class CategoryService {
     getSingleWinningTags(id) {
         return RequestHandler.single(API_URLS.winningTags.single, id)
     }
+    updateWinningTags(id, data) {
+        return RequestHandler.put(API_URLS.winningTags.updateTag, id, data)
+    }
     create(data) {
         return RequestHandler.post(API_URLS.user.create, data)
     }

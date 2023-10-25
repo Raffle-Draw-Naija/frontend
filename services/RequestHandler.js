@@ -1,5 +1,9 @@
 import axios from 'axios'
 
+axios.defaults.headers.post['Content-Type'] =
+    'application/x-www-form-urlencoded'
+axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*'
+
 const BASE_URL = import.meta.env.VITE_DEV_BASE_URL
 
 console.log('URL IS ', BASE_URL)

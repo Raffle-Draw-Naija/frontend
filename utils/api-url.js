@@ -17,6 +17,7 @@ export const API_URLS = {
     winningTags: {
         all: 'winning-tags',
         single: 'admin/category/winning-tags',
+        updateTag: 'admin/update/winning-tags',
     },
     draw: {
         stateADraw: 'admin/start-a-draw',

@@ -37,10 +37,6 @@ const ActiveRaffleDraws = () => {
     };
     const columns = [
         {
-            title: '#',
-            key: 'id',
-        },
-        {
             title: 'Category',
             dataIndex: 'category',
             key: 'category',
@@ -51,19 +47,19 @@ const ActiveRaffleDraws = () => {
             key: 'winningTags',
         },
         {
-            title: 'Month',
-            dataIndex: 'month',
-            key: 'month',
-        },
-        {
-            title: 'Year',
-            dataIndex: 'year',
-            key: 'year',
+            title: 'Start Date',
+            dataIndex: 'start_date',
+            key: 'start_date',
         },
         {
             title: 'Win No',
             dataIndex: 'win_nos',
             key: 'win_no',
+        },
+        {
+            title: 'Current Winners',
+            dataIndex: 'current_winners',
+            key: 'current_winners',
         },
         {
             title: 'Status',

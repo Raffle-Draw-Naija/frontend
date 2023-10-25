@@ -1,17 +1,20 @@
-import React, { useRef, useState } from 'react'
-import SignInLogo from '../../assets/sign_in.svg'
-import { Link } from 'react-router-dom'
+import { useRef, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Button from '../../components/Button'
 import InputWrapper from '../../components/input/InputWrapper'
 import validateInputs from '../../components/input/validator'
+import { useDispatch, useSelector } from 'react-redux'
+import { UserServices } from '../../../services/UserService'
+import { loginFailure, loginStart, loginSuccess } from '../../redux/userSlice'
 
 export default function SignIn() {
+    const navigate = useNavigate();
     const usernameRef = useRef('')
     const passwordRef = useRef('')
-
-    const [loading, setLoading] = useState(false)
+    const dispatch = useDispatch()
     const [showPassword, setShowPassword] = useState(false)
-
+    const [errors, setErrors] = useState(false)
+    const { loading } = useSelector(state => state.user)
     const [formErrors, setFormErrors] = useState({
         username: '',
         password: ''
@@ -24,10 +27,9 @@ export default function SignIn() {
         }
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
-
-        setLoading(true)
+        dispatch(loginStart)
 
         try {
             const formData = getFormData()
@@ -40,16 +42,18 @@ export default function SignIn() {
                 return;
             }
 
-            console.log({ formData });
+            const res = await UserServices.authenticate(formData)
+            dispatch(loginSuccess(res.data.data))
+            navigate("/dashboard")
         } catch (error) {
-
+            console.log("error ", error.response.data.data)
+            setErrors(true)
         } finally {
-            setLoading(false)
+            console.log('')
         }
     }
 
     const { username: username_err, password: password_err } = formErrors
-
     return (
         <>
             <div className="flex flex-col items-center gap-2 w-[80%] text-center">
@@ -58,6 +62,7 @@ export default function SignIn() {
 
             {/* Login Form */}
             <form className="flex flex-col gap-8 w-full" onSubmit={handleSubmit}>
+                {errors && (<div className='alert alert-danger'>Invalid Username/Password</div>)}
                 <div className="flex flex-col gap-4 w-full">
                     {/* Input Fields */}
                     <div className="flex flex-col gap-6 w-full">
@@ -101,7 +106,7 @@ export default function SignIn() {
                 <div className="flex flex-col gap-4 w-full items-center">
                     <Button
                         className='bg-primary text-light w-[60%]'
-                        loading={loading}
+                        loading={loading && loading}
                         type='submit'
                     >
                         Submit

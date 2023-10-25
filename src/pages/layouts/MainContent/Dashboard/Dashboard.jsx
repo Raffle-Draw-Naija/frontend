@@ -14,11 +14,12 @@ const Dashboard = () => {
         const getDraws = async () => {
             const res = await StakeServices.dashboard();
             console.log(res.data.data.recentStakes)
-            if (res.data.data) setDataSource(res.data.data.recentStakes)
+            if (res.data.data) setDataSource(res.data.data)
         }
         getDraws()
     }, []);
 
+    const data = dataSource?.recentStakes
     const columns = [
 
         {
@@ -61,7 +62,7 @@ const Dashboard = () => {
                         <Card style={{ width: "100%" }}>
                             <header>Total No. of Stakes</header>
                             <div className='number'>
-                                {dataSource.recentCount}
+                                {dataSource.stakesCount}
                             </div>
                         </Card>
                     </div>
@@ -102,7 +103,7 @@ const Dashboard = () => {
                         <div className='card'>
                             <Card style={{ width: "100%" }}>
                                 <h4>Recent Stakes</h4>
-                                <Table dataSource={dataSource} columns={columns} pagination={false} />;
+                                <Table dataSource={data} columns={columns} pagination={false} />;
                             </Card>
                         </div>
                     </Col>
