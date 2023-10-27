@@ -12,6 +12,8 @@ import StartADraw from "./pages/layouts/MainContent/StartADraw/startADraw";
 import ActiveRaffleDraws from "./pages/layouts/MainContent/StartADraw/ActiveRaffleDraws";
 import BankAccounts from "./pages/layouts/BankAccounts/BankAccounts";
 import ProtectedRoute from "./components/ProtectedRoute";
+import CustomerTransactions from "./pages/Layouts/MainContent/CustomerTransactions/CustomerTransactions";
+import Customers from "./pages/Layouts/MainContent/Customers/Customers";
 
 
 const router = createBrowserRouter([
@@ -67,8 +69,13 @@ const router = createBrowserRouter([
 
             },
             {
-                path: "/payment-by-card",
-                element: <BankAccounts />
+                path: "/customers",
+                element: <Customers />
+
+            },
+            {
+                path: "/customer/transactions",
+                element: <CustomerTransactions />
 
             },
             {

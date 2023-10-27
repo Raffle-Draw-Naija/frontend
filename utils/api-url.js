@@ -6,11 +6,6 @@ export const API_URLS = {
         all: 'user/user-information',
         add: 'user/add-fund',
     },
-    pending: {
-        all: 'user/transaction/pending',
-        cancel: 'user/transaction/pending/cancel',
-        getTransaction: 'user/transaction/pending/get-transaction',
-    },
     categories: {
         all: 'categories',
     },
@@ -18,6 +13,12 @@ export const API_URLS = {
         all: 'winning-tags',
         single: 'admin/category/winning-tags',
         updateTag: 'admin/update/winning-tags',
+    },
+    customer: {
+        all: 'admin/customers',
+    },
+    transactions: {
+        all: 'admin/customer/transactions',
     },
     draw: {
         stateADraw: 'admin/start-a-draw',
@@ -27,5 +28,6 @@ export const API_URLS = {
     stakes: {
         all: 'admin/customer/stakes',
         dashboard: 'admin/dashboard',
+        searchByDate: 'admin/customer/search-by-date',
     },
 }

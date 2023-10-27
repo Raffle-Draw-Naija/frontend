@@ -1,10 +1,12 @@
 import RequestHandler from './RequestHandler'
 import { API_URLS } from '../utils/api-url'
-import { data } from 'autoprefixer'
 
 class StakeService {
     startADraw(data) {
         return RequestHandler.post(API_URLS.draw.stateADraw, data)
+    }
+    searchStakeByDate(data) {
+        return RequestHandler.post(API_URLS.stakes.searchByDate, data)
     }
     raffleDraws() {
         return RequestHandler.get(API_URLS.draw.all)

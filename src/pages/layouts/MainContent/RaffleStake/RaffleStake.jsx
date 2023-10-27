@@ -1,5 +1,6 @@
 import { Col, Row, Table } from 'antd';
-import StakeComponent from '../../../../component/StakeComponent';
+import RaffleStakeSearch from '../../../../components/RaffleStakeSearch/RaffleStakeSearch';
+import SearchByDate from '../../../../components/SearchByDate/SearchByDate';
 import { StakeServices } from '../../../../../services/StakeService';
 import { useEffect, useState } from 'react';
 import check from "../../../../assets/Icon/check.png"
@@ -9,10 +10,54 @@ const RaffleStake = () => {
 
     const [dataSource, setDataSource] = useState([])
 
+    const [data, setData] = useState({});
+    const [winningTags, setWinningTags] = useState();
+
+    const onChangeStartDate = (date, dateString) => {
+        console.log("Start Date", dateString);
+        setData({ ...data, start_date: dateString })
+    };
+    const onChangeEndDate = (date, dateString) => {
+        console.log(date, dateString);
+        setData({ ...data, end_date: dateString })
+
+    };
+    const handleChange = (value) => {
+        console.log(`selected ${value}`);
+        setData({ ...data, search_value: value })
+
+    };
+
+    const onInputChange = (e) => {
+
+        setData({ ...data, search_item: e.target.value })
+
+    };
+    const handleWinningTagsChange = (value) => {
+
+        setData({ ...data, winningTag: value })
+
+    };
+    const onSubmit = async () => {
+        console.log("data is ", data)
+        try {
+            const res = await StakeServices.searchStakeByDate(data);
+            if (res.data.data) setDataSource(res.data.data)
+        } catch (error) {
+            console.log(error)
+        }
+    }
     useEffect(() => {
         const getDraws = async () => {
-            const res = await StakeServices.getAllStakes();
-            if (res.data.data) setDataSource(res.data.data)
+            try {
+                const res = await StakeServices.getAllStakes();
+                if (res.data.data) {
+                    setDataSource(res.data.data.stakes)
+                    setWinningTags(res.data.data.winningTags)
+                }
+            } catch (error) {
+                console.log(error)
+            }
         }
         getDraws()
     }, []);
@@ -72,12 +117,19 @@ const RaffleStake = () => {
     return (
         <div>
             <div className="raffle-stake">
-                {/* <StakeComponent /> */}
+                <SearchByDate
+                    search_item={data.search_item}
+                    handleWinningTagsChange={handleWinningTagsChange}
+                    onInputChange={onInputChange}
+                    winningTags={winningTags}
+                    handleChange={handleChange}
+                    onSubmit={onSubmit}
+                    onChangeEndDate={onChangeEndDate}
+                    onChangeStartDate={onChangeStartDate}
+                />
                 <Row>
                     <Col span={24}>
-
                         <Table dataSource={dataSource} columns={columns} />;
-
                     </Col>
                 </Row>
             </div>

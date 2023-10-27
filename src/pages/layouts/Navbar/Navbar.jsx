@@ -32,7 +32,7 @@ const Navbar = () => {
                     onClick={handleInputClick}
                 />
                 <div
-                    className="relative inline-block text-left h-[50px] w-[235px] rounded-[30px]"
+                    className="relative inline-block text-left h-[50px] w-[235px] rounded-[30px] z-50"
                     onClick={toggleDropdown}
                 >
                     <div className="h-[100%] w-[100%] rounded-[30px]">

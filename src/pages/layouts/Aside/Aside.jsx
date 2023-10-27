@@ -49,6 +49,19 @@ const Aside = () => {
                     </NavLink>
                 </li>
                 <li>
+                    <NavLink to="/customers" className="nav-link">
+                        <RiSettingsLine />
+                        Customers
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink to="/customer/transactions" className="nav-link">
+                        <RiSettingsLine />
+                        Customer Transactions
+                    </NavLink>
+                </li>
+
+                <li>
                     <NavLink to="/settings" className="nav-link">
                         <RiSettingsLine />
                         Settings

@@ -14,6 +14,7 @@ export default function SignIn() {
     const dispatch = useDispatch()
     const [showPassword, setShowPassword] = useState(false)
     const [errors, setErrors] = useState(false)
+    const [errorMessage, setErrorMessage] = useState("")
     const { loading } = useSelector(state => state.user)
     const [formErrors, setFormErrors] = useState({
         username: '',
@@ -46,8 +47,14 @@ export default function SignIn() {
             dispatch(loginSuccess(res.data.data))
             navigate("/dashboard")
         } catch (error) {
-            console.log("error ", error.response.data.data)
-            setErrors(true)
+            if (!error) {
+                setErrorMessage("Network Error. Try again")
+                setErrors(true)
+            } else {
+                setErrors(true)
+                setErrorMessage("Invalid Username/Password")
+            }
+
         } finally {
             console.log('')
         }
@@ -62,7 +69,7 @@ export default function SignIn() {
 
             {/* Login Form */}
             <form className="flex flex-col gap-8 w-full" onSubmit={handleSubmit}>
-                {errors && (<div className='alert alert-danger'>Invalid Username/Password</div>)}
+                {errors && (<div className='alert alert-danger'>{errorMessage}</div>)}
                 <div className="flex flex-col gap-4 w-full">
                     {/* Input Fields */}
                     <div className="flex flex-col gap-6 w-full">
