@@ -20,6 +20,7 @@ const TabPanel = ({ id }) => {
         {
             key: '1',
             label: (
+
                 <NavLink
                     to="/winning-tag/edit/3"
                     className="nav-link"
@@ -28,9 +29,17 @@ const TabPanel = ({ id }) => {
                     Edit
                 </NavLink>
             ),
-        }];
+        },
+    ];
 
-
+    // const items = winningTags.map((winningTag) => ({
+    //     key: String(winningTag.id),
+    //     label: (
+    //         <NavLink to={`/winning-tag/edit/${winningTag.id}`} className="nav-link" end>
+    //             Edit
+    //         </NavLink>
+    //     ),
+    // }));
 
     return (
         <div className="d-flex flex-wrap align-item-center">
@@ -48,14 +57,17 @@ const TabPanel = ({ id }) => {
                                 </p>
                             </div>
                             <div className=''>
-                                <Dropdown
+                                <NavLink to={`/winning-tag/edit/${winningTag.id}`}>
+                                    Edit
+                                </NavLink>
+                                {/* <Dropdown
                                     menu={{
                                         items,
                                     }}
                                     placement="bottomRight"
                                 >
                                     <img src={more} alt="" style={{ "height": "50px", "cursor": "pointer" }} />
-                                </Dropdown>
+                                </Dropdown> */}
                             </div>
                         </div>
                     </Card>

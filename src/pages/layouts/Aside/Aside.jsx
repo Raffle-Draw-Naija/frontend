@@ -10,9 +10,10 @@ const Aside = () => {
             <NavLink to="/" className="aside-logo">
                 <img src={Logo} alt="raffle9ja" />
             </NavLink>
-            
+
             <ul>
-                {routes.map(({route, Icon, label}) => (
+
+                {routes.map(({ route, Icon, label }) => (
                     <li key={route}>
                         <NavLink to={route} className="nav-link">
                             <Icon />
@@ -20,6 +21,38 @@ const Aside = () => {
                         </NavLink>
                     </li>
                 ))}
+
+                <li>
+                    <NavLink to="/dashboard" className="nav-link">
+                        <FiHome />
+                        Dashboard
+                    </NavLink>
+                </li>
+
+                <li>
+                    <NavLink to="/raffle-draws" className="nav-link">
+                        <RiSettingsLine />
+                        Active Raffle Draws
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink to="/raffle-stakes" className="nav-link">
+                        <BsTicketPerforated />
+                        Raffle Stakes
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink to="/winning-tags" className="nav-link">
+                        <RiSettingsLine />
+                        Winning Tags
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink to="/settings" className="nav-link">
+                        <RiSettingsLine />
+                        Settings
+                    </NavLink>
+                </li>
 
                 <li>
                     <NavLink href="/logout" className="logout nav-link">

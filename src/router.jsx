@@ -73,7 +73,17 @@ const router = createBrowserRouter([
 
 			},
 			{
-				path: "/bank-accounts",
+				path: "/payment-by-card",
+				element: <BankAccounts />
+
+			},
+			{
+				path: "/payment-by-credit",
+				element: <BankAccounts />
+
+			},
+			{
+				path: "/wallet",
 				element: <BankAccounts />
 
 			}

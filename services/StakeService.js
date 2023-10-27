@@ -15,6 +15,9 @@ class StakeService {
     getAllStakes() {
         return RequestHandler.get(API_URLS.stakes.all)
     }
+    dashboard() {
+        return RequestHandler.get(API_URLS.stakes.dashboard)
+    }
 }
 
 export const StakeServices = new StakeService()
