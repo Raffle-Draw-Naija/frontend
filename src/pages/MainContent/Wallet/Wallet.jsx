@@ -1,6 +1,6 @@
 import React from 'react'
 import { Table, TableItem, TableItemContainer, TableRow } from '../../../components/table/Table'
-import { WalletHistory, items } from './wallet'
+import { WalletHistory, items } from './walletHistory'
 import { Input } from 'antd';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { DatePicker, Space } from 'antd';

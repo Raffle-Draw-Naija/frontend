@@ -3,6 +3,9 @@ import Logo from '../../../assets/Icon/raffleLogo.png'
 import { BiLogOutCircle } from 'react-icons/bi'
 import { NavLink } from 'react-router-dom'
 import routes from './routes'
+import { FiHome } from 'react-icons/fi'
+import { RiSettingsLine } from 'react-icons/ri'
+import { BsTicketPerforated } from 'react-icons/bs'
 
 const Aside = () => {
     return (

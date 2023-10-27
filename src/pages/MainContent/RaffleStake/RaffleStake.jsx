@@ -12,7 +12,7 @@ const RaffleStake = () => {
     useEffect(() => {
         const getDraws = async () => {
             const res = await StakeServices.getAllStakes();
-            if (res.data.data) setDataSource(res.data.data)
+            if (res.data.data) setDataSource(res.data.data.stakes)
         }
         getDraws()
     }, []);

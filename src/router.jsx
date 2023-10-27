@@ -15,7 +15,7 @@ import Dashboard from "./pages/MainContent/Dashboard/Dashboard";
 import RaffleStake from "./pages/MainContent/RaffleStake/RaffleStake";
 import Wallet from "./pages/MainContent/Wallet/Wallet";
 import WinningTags from "./pages/MainContent/WinningTags/WinningTags";
-import EditWinningTags from "./pages/MainContent/WinningTags/EditWinningTags";
+
 import StartADraw from "./pages/MainContent/StartADraw/StartADraw";
 // import { ToastContainer, toast } from 'react-toastify';
 import ActiveRaffleDraws from "./pages/MainContent/StartADraw/ActiveRaffleDraws";
@@ -61,11 +61,6 @@ const router = createBrowserRouter([
 			{
 				path: "/winning-tags",
 				element: <WinningTags />
-			},
-			{
-				path: "/winning-tag/edit/:id",
-				element: <EditWinningTags />
-
 			},
 			{
 				path: "/start-a-draw",
