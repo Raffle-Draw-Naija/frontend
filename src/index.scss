@@ -27,6 +27,11 @@
     letter-spacing: 0.4px;
 }
 
+h4 {
+    font-weight: bolder;
+    margin: 0rem 0rem 1rem 0rem;
+    font-size: 1.5rem !important;
+}
 .animate-spin-reverse {
     animation: spin 1s linear infinite;
 
@@ -52,4 +57,18 @@
 }
 form .btn-primary {
     height: 3rem;
+}
+
+
+// Badge styles
+.badge {
+    @apply py-1 px-3 text-center;
+}
+
+.badge-success {
+    @apply bg-success-light text-success;
+}
+
+.badge-warning {
+    @apply bg-warning-light text-warning;
 }

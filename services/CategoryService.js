@@ -8,6 +8,9 @@ class CategoryService {
     getWinningTags(id) {
         return RequestHandler.single(API_URLS.winningTags.all, id)
     }
+    getSingleWinningTags(id) {
+        return RequestHandler.single(API_URLS.winningTags.single, id)
+    }
     create(data) {
         return RequestHandler.post(API_URLS.user.create, data)
     }

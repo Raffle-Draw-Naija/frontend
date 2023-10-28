@@ -1,8 +1,8 @@
 
 import { useEffect, useState } from 'react';
 import { Button, Form, Card, Select, DatePicker, Input } from 'antd';
-import { CategoryServices } from '../../../../../services/CategoryService';
-import { StakeServices } from '../../../../../services/StakeService';
+import { CategoryServices } from '../../../../services/CategoryService';
+import { StakeServices } from '../../../../services/StakeService';
 import Swal from 'sweetalert2'
 import { ToastContainer, toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
@@ -102,7 +102,6 @@ const StartADraw = () => {
                         <Select
                             placeholder="Select a option and change input text above"
                             onChange={onWinningTagChange}
-                            value={setFormData || ''}
                             allowClear
                         >
                             {
@@ -122,6 +121,7 @@ const StartADraw = () => {
                         label="Type Win Number"
                         name="win_nos"
                         onChange={onWinNumberChange}
+                        value={setFormData || ''}
                         rules={[
                             {
                                 required: true,

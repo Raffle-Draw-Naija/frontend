@@ -17,9 +17,13 @@ export default {
                 success: '#23AC00',
                 'success-light': '#D2FFCE',
                 light: '#F9F9F9',
+                warning: '#F3A218',
+                'warning-light': '#FEF6E7'
             },
         }),
         extend: {},
     },
-    plugins: [],
+    plugins: [
+        require('tailwind-scrollbar')
+    ],
 }

@@ -1,9 +1,9 @@
 import { Col, Row, Table } from 'antd';
-import StakeComponent from '../../../../component/StakeComponent';
-import { StakeServices } from '../../../../../services/StakeService';
+// import StakeComponent from '../../../component/StakeComponent';
+import { StakeServices } from '../../../../services/StakeService';
 import { useEffect, useState } from 'react';
-import check from "../../../../assets/Icon/check.png"
-import close from "../../../../assets/Icon/close.png"
+import check from "../../../assets/Icon/check.png"
+import close from "../../../assets/Icon/close.png"
 
 const RaffleStake = () => {
 
@@ -12,7 +12,7 @@ const RaffleStake = () => {
     useEffect(() => {
         const getDraws = async () => {
             const res = await StakeServices.getAllStakes();
-            if (res.data.data) setDataSource(res.data.data)
+            if (res.data.data) setDataSource(res.data.data.stakes)
         }
         getDraws()
     }, []);
@@ -38,6 +38,11 @@ const RaffleStake = () => {
             title: 'Date',
             dataIndex: 'date',
             key: 'date',
+        },
+        {
+            title: 'Pay Method',
+            dataIndex: 'payment_method',
+            key: 'payment_method',
         },
         {
             title: 'Ticket ID',

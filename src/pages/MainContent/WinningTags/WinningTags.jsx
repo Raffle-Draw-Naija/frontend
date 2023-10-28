@@ -1,6 +1,6 @@
 import { Tabs } from 'antd';
-import { CategoryServices } from '../../../../../services/CategoryService';
-import TabPanel from '../../../../components/TabPanel';
+import { CategoryServices } from '../../../../services/CategoryService';
+import TabPanel from '../../../components/TabPanel';
 import { NavLink } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 const onChange = (key) => {
