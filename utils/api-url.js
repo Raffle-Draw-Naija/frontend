@@ -10,7 +10,7 @@ export const API_URLS = {
         all: 'categories',
     },
     winningTags: {
-        all: 'winning-tags',
+        all: 'admin/winning-tags',
         single: 'admin/category/winning-tags',
         updateTag: 'admin/update/winning-tags',
     },
@@ -21,7 +21,7 @@ export const API_URLS = {
         all: 'admin/customer/transactions',
     },
     draw: {
-        stateADraw: 'admin/start-a-draw',
+        stateARaffle: 'admin/start-a-raffle',
         all: 'admin/get-all-draw',
         stop: 'admin/stop-raffle-draw',
     },

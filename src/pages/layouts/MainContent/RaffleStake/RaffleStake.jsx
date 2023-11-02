@@ -5,6 +5,7 @@ import { StakeServices } from '../../../../../services/StakeService';
 import { useEffect, useState } from 'react';
 import check from "../../../../assets/Icon/check.png"
 import close from "../../../../assets/Icon/close.png"
+import StakeComponent from '../../../../component/StakeComponent';
 
 const RaffleStake = () => {
 
@@ -12,6 +13,7 @@ const RaffleStake = () => {
 
     const [data, setData] = useState({});
     const [winningTags, setWinningTags] = useState();
+    const [total, setTotal] = useState();
 
     const onChangeStartDate = (date, dateString) => {
         console.log("Start Date", dateString);
@@ -42,7 +44,11 @@ const RaffleStake = () => {
         console.log("data is ", data)
         try {
             const res = await StakeServices.searchStakeByDate(data);
-            if (res.data.data) setDataSource(res.data.data)
+            if (res.data.data) {
+                setDataSource(res.data.data.res)
+                setTotal(res.data.data.total)
+
+            }
         } catch (error) {
             console.log(error)
         }
@@ -53,6 +59,7 @@ const RaffleStake = () => {
                 const res = await StakeServices.getAllStakes();
                 if (res.data.data) {
                     setDataSource(res.data.data.stakes)
+                    setTotal(res.data.data.total)
                     setWinningTags(res.data.data.winningTags)
                 }
             } catch (error) {
@@ -116,7 +123,9 @@ const RaffleStake = () => {
     ];
     return (
         <div>
-            <div className="raffle-stake">
+            <StakeComponent titleContent="All Stakes" total={total} />
+
+            <div className="raffle-stake content">
                 <SearchByDate
                     search_item={data.search_item}
                     handleWinningTagsChange={handleWinningTagsChange}

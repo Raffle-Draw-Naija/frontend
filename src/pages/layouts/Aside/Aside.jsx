@@ -18,9 +18,9 @@ const Aside = () => {
 
     }
     return (
-        <nav className="aside">
+        <nav className="aside d-sm-block d-none d-sm-none d-md-block">
             <NavLink to="/" className="aside-logo">
-                <img src={Logo} alt="raffle9ja" />
+                {/* <img src={Logo} alt="raffle9ja" /> */}
             </NavLink>
             <ul>
                 <li>
@@ -57,7 +57,7 @@ const Aside = () => {
                 <li>
                     <NavLink to="/customer/transactions" className="nav-link">
                         <RiSettingsLine />
-                        Customer Transactions
+                        Cust. Trans. History
                     </NavLink>
                 </li>
 

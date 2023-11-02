@@ -1,6 +1,7 @@
 import { Col, Row, Table } from "antd";
 import { useEffect, useState } from "react";
 import { CustomerServices } from "../../../../../services/CustomerService";
+import StakeComponent from "../../../../component/StakeComponent";
 
 const Customers = () => {
     const [dataSource, setDataSource] = useState([])
@@ -36,9 +37,10 @@ const Customers = () => {
         }
     ];
     return (
-        <div>
-
+        <div className="content">
+            <StakeComponent titleContent="All Customers" />
             <div className="raffle-stake">
+
                 <Row>
                     <Col span={24}>
                         <Table dataSource={dataSource} columns={columns} />;

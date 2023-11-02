@@ -14,6 +14,7 @@ import BankAccounts from "./pages/layouts/BankAccounts/BankAccounts";
 import ProtectedRoute from "./components/ProtectedRoute";
 import CustomerTransactions from "./pages/Layouts/MainContent/CustomerTransactions/CustomerTransactions";
 import Customers from "./pages/Layouts/MainContent/Customers/Customers";
+import Login from "./pages/auth/Login";
 
 
 const router = createBrowserRouter([
@@ -64,7 +65,7 @@ const router = createBrowserRouter([
 
             },
             {
-                path: "/start-a-draw",
+                path: "/start-a-raffle",
                 element: <StartADraw />
 
             },

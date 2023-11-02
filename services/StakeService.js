@@ -2,8 +2,8 @@ import RequestHandler from './RequestHandler'
 import { API_URLS } from '../utils/api-url'
 
 class StakeService {
-    startADraw(data) {
-        return RequestHandler.post(API_URLS.draw.stateADraw, data)
+    stateARaffle(data) {
+        return RequestHandler.post(API_URLS.draw.stateARaffle, data)
     }
     searchStakeByDate(data) {
         return RequestHandler.post(API_URLS.stakes.searchByDate, data)

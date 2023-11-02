@@ -26,7 +26,24 @@
     font-size: 16px;
     letter-spacing: 0.4px;
 }
+.content {
+    height: 65vh;
+    overflow-y: scroll;
 
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+body {
+    background-color: #eff1f2;
+}
+h3 {
+    font-weight: bolder;
+    font-size: 1.6rem;
+}
 h4 {
     font-weight: bolder;
     margin: 0rem 0rem 1rem 0rem;

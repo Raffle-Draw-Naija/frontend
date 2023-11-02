@@ -5,8 +5,6 @@ import { StakeServices } from '../../../../../services/StakeService';
 import StakeComponent from '../../../../component/StakeComponent';
 
 import { ToastContainer, toast } from 'react-toastify';
-import "react-toastify/dist/ReactToastify.css";
-
 
 const ActiveRaffleDraws = () => {
     const [dataSource, setDataSource] = useState([])
@@ -52,6 +50,11 @@ const ActiveRaffleDraws = () => {
             key: 'start_date',
         },
         {
+            title: 'End Date',
+            dataIndex: 'end_date',
+            key: 'end_date',
+        },
+        {
             title: 'Win No',
             dataIndex: 'win_nos',
             key: 'win_no',
@@ -66,13 +69,13 @@ const ActiveRaffleDraws = () => {
             dataIndex: 'status',
 
             render: (_, record) =>
-                record.status === 1 ? (
-                    <Popconfirm title="Sure to delete?" key={record.id} onConfirm={() => handleStopDraw(record.id)}>
-                        <a className='btn btn-primary'>Terminate</a>
+                record.status === 0 ? (
+                    <Popconfirm title="Sure to Close?" key={record.id} onConfirm={() => handleStopDraw(record.id)}>
+                        <a className='btn btn-primary'>Close Raffle</a>
                     </Popconfirm>
                 ) : (
                     <div>
-                        Terminated
+                        Raffle Closed
                     </div>
                 ),
         },
@@ -81,9 +84,8 @@ const ActiveRaffleDraws = () => {
     return (
         <div>
             <ToastContainer />
-            <StakeComponent url={"/start-a-draw"} titleContent="Raffle Draws" buttonContent="Start A Draw" />
-            <div className="raffle-stake">
-
+            <StakeComponent url={"/start-a-raffle"} titleContent="Raffle Draws" buttonContent="Start A Raffle" />
+            <div className="raffle-stake content">
                 <Row>
                     <Col span={24}>
 

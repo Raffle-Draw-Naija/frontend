@@ -33,14 +33,21 @@ const StartADraw = () => {
         getCategories()
     }, []);
 
-    const onChange = (date, dateString) => {
+    const onStartChange = (date, dateString) => {
         console.log(dateString);
         setFormData({ ...formData, start_date: dateString })
     };
 
+    const onEndChange = (date, dateString) => {
+        console.log(dateString);
+        setFormData({ ...formData, end_date: dateString })
+    };
 
     const onWinNumberChange = async (e) => {
         setFormData({ ...formData, win_nos: e.target.value })
+    };
+    const onMaxWinNumberChange = async (e) => {
+        setFormData({ ...formData, max_winner_count: e.target.value })
     };
     const onWinningTagChange = async (value) => {
         const res = await CategoryServices.getWinningTags(value);
@@ -56,7 +63,7 @@ const StartADraw = () => {
     const onFinish = async () => {
         setLoading(true)
         try {
-            const startADraw = await StakeServices.startADraw(formData)
+            const startADraw = await StakeServices.stateARaffle(formData)
             if (startADraw.status == 200) {
                 setLoading(false)
                 // navigate("/raffle-draws");
@@ -79,7 +86,7 @@ const StartADraw = () => {
     return (
         <div className="d-flex justify-content-center align-items-center main-content">
             <ToastContainer />
-            <Card title="Start a New Draw" style={{ width: 600 }}>
+            <Card title="Start a New Raffle" style={{ width: 600 }}>
                 <Form
                     layout={formLayout}
                     form={form}
@@ -117,10 +124,13 @@ const StartADraw = () => {
 
                     </Form.Item>
 
-                    <Form.Item name="start_date" label="Select Date" rules={[{ required: true }]} labelCol={{ span: 24 }}>
-                        <DatePicker format="YYYY-MM-DD" onChange={onChange} className='w-100' />
+                    <Form.Item name="start_date" label="Select Start Date" rules={[{ required: true }]} labelCol={{ span: 24 }}>
+                        <DatePicker format="YYYY-MM-DD" onChange={onStartChange} className='w-100' />
                     </Form.Item>
 
+                    <Form.Item name="end_date" label="Select End Date" rules={[{ required: true }]} labelCol={{ span: 24 }}>
+                        <DatePicker format="YYYY-MM-DD" onChange={onEndChange} className='w-100' />
+                    </Form.Item>
                     <Form.Item
                         label="Type Win Number"
                         name="win_nos"
@@ -130,6 +140,21 @@ const StartADraw = () => {
                             {
                                 required: true,
                                 message: 'Win Number is Required',
+                            },
+                        ]}
+                        labelCol={{ span: 24 }}
+                    >
+                        <Input />
+                    </Form.Item>
+                    <Form.Item
+                        label="Type Maximum No. of Winners"
+                        name="max_winner_count"
+                        onChange={onMaxWinNumberChange}
+                        value={setFormData || ''}
+                        rules={[
+                            {
+                                required: true,
+                                message: 'Maximum No. of Winners',
                             },
                         ]}
                         labelCol={{ span: 24 }}

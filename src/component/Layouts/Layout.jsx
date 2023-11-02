@@ -9,10 +9,10 @@ const Layout = () => {
         <div >
 
             <Row>
-                <Col span={5}>
+                <Col lg={5} className='d-sm-block d-none d-sm-none d-md-block'>
                     <Aside />
                 </Col>
-                <Col span={19}>
+                <Col xl={19} lg={19} md={19} sm={24} xs={24}>
                     <Row>
                         <Col span={24}>
                             <Navbar />

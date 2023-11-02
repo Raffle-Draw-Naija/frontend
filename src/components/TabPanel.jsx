@@ -1,8 +1,6 @@
-import { Dropdown, Card } from 'antd';
+import { Card } from 'antd';
 import { CategoryServices } from '../../services/CategoryService';
 import { useEffect, useState } from 'react';
-import sam from "../assets/sam.jpg"
-import more from "../assets/more.png"
 import { NavLink } from 'react-router-dom';
 
 
@@ -16,37 +14,13 @@ const TabPanel = ({ id }) => {
         }
         getWinningTags(id)
     }, []);
-    const items = [
-        {
-            key: '1',
-            label: (
-
-                <NavLink
-                    to="/winning-tag/edit/3"
-                    className="nav-link"
-                    end
-                >
-                    Edit
-                </NavLink>
-            ),
-        },
-    ];
-
-    // const items = winningTags.map((winningTag) => ({
-    //     key: String(winningTag.id),
-    //     label: (
-    //         <NavLink to={`/winning-tag/edit/${winningTag.id}`} className="nav-link" end>
-    //             Edit
-    //         </NavLink>
-    //     ),
-    // }));
 
     return (
         <div className="d-flex flex-wrap align-item-center">
             {winningTags && winningTags.map((winningTag) => (
                 <div key={winningTag.id}>
                     <Card bordered={true} style={{ width: 300 }}>
-                        <img src={sam} alt="" />
+                        <img src={winningTag.image} alt="" />
                         <div className="d-flex">
                             <div>
                                 <header className='my-3 bold'>
@@ -60,14 +34,6 @@ const TabPanel = ({ id }) => {
                                 <NavLink to={`/winning-tag/edit/${winningTag.id}`}>
                                     Edit
                                 </NavLink>
-                                {/* <Dropdown
-                                    menu={{
-                                        items,
-                                    }}
-                                    placement="bottomRight"
-                                >
-                                    <img src={more} alt="" style={{ "height": "50px", "cursor": "pointer" }} />
-                                </Dropdown> */}
                             </div>
                         </div>
                     </Card>
