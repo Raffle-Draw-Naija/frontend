@@ -1,5 +1,4 @@
 import { Col, Row, Table } from 'antd';
-import RaffleStakeSearch from '../../../../components/RaffleStakeSearch/RaffleStakeSearch';
 import SearchByDate from '../../../../components/SearchByDate/SearchByDate';
 import { StakeServices } from '../../../../../services/StakeService';
 import { useEffect, useState } from 'react';
