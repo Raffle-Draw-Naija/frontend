@@ -11,9 +11,26 @@ import BarChart from '../../../../components/BarChart';
 import PieChart from '../../../../components/PieChart';
 import { UserData } from '../../../../components/data';
 import LineChart from '../../../../components/LineChart';
-
+import { onMessageListener, requestForToken } from '../../../../firebase';
+import { getToken } from 'firebase/messaging';
 
 const Dashboard = () => {
+
+    const [show, setShow] = useState(false);
+    const [notification, setNotification] = useState({ title: 'Title', body: 'Body' });
+    const [isTokenFound, setTokenFound] = useState(false);
+
+    useEffect(() => {
+        requestForToken();
+    }, [])
+
+    onMessageListener().then(payload => {
+        getToken(setTokenFound);
+        setShow(true);
+        setNotification({ title: payload.notification.title, body: payload.notification.body })
+        console.log(payload);
+    }).catch(err => console.log('failed: ', err));
+
 
     const [dataSource, setDataSource] = useState([])
     const [userData, setUserData] = useState({

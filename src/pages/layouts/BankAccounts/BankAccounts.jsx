@@ -1,47 +1,57 @@
 import { Col, Row, Table } from "antd";
 import { useEffect, useState } from "react";
-import { StakeServices } from "../../../../services/StakeService";
+import { UserServices } from "../../../../services/UserService";
 
 const BankAccounts = () => {
     const [dataSource, setDataSource] = useState([])
+    const [error, setError] = useState(false)
 
     useEffect(() => {
         const getDraws = async () => {
-            const res = await StakeServices.getAllStakes();
-            if (res.data.data) setDataSource(res.data.data)
+            try {
+
+                const res = await UserServices.getAccounts();
+                if (res.data.data) setDataSource(res.data.data)
+            } catch (error) {
+
+                if (error.response) {
+                    setError(error.response.data.data);
+                } else if (error.request) {
+                    console.log(error.request);
+                } else {
+                    console.log('Error', error.message);
+                }
+            }
         }
         getDraws()
     }, []);
 
     const columns = [
         {
-            title: 'Category',
-            dataIndex: 'category',
-            key: 'category',
+            title: 'Bank',
+            dataIndex: 'bank',
+            key: 'bank',
         },
         {
-            title: 'Winning Tags',
-            dataIndex: 'winningTags',
-            key: 'winningTags',
+            title: 'Account Number',
+            dataIndex: 'account_no',
+            key: 'account_no',
         },
         {
-            title: 'Stake Price',
-            dataIndex: 'stakePrice',
-            key: 'stakePrice',
+            title: 'Account Name',
+            dataIndex: 'account_name',
+            key: 'account_name',
         },
         {
             title: 'Date',
-            dataIndex: 'date',
-            key: 'date',
+            dataIndex: 'created_at',
+            key: 'created_at',
         },
-        {
-            title: 'Ticket ID',
-            dataIndex: 'ticketId',
-            key: 'ticketId',
-        }
     ];
     return (
         <div>
+            {error && (<div className="alert alert-danger">{error}</div>)}
+            <h3 className="mb-3">Bank Accounts</h3>
             <Row>
                 <Col span={24}>
 

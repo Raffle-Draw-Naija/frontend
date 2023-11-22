@@ -62,6 +62,18 @@ const Aside = () => {
                 </li>
 
                 <li>
+                    <NavLink to="/customer/bank-accounts" className="nav-link">
+                        <RiSettingsLine />
+                        Bank Accounts
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink to="/customer/pending-withdrawals" className="nav-link">
+                        <RiSettingsLine />
+                        Pending Withdrawal
+                    </NavLink>
+                </li>
+                <li>
                     <NavLink to="/settings" className="nav-link">
                         <RiSettingsLine />
                         Settings
@@ -69,9 +81,11 @@ const Aside = () => {
                 </li>
 
                 <li>
-                    <div onClick={navLogout} className="logout nav-link">
+                    <div onClick={navLogout} className="logout nav-link d-flex py-3 pl-3 gap-3">
                         <BiLogOutCircle />
-                        Logout
+                        <div>
+                            Logout
+                        </div>
                     </div>
                 </li>
             </ul>

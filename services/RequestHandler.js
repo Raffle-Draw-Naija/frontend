@@ -19,7 +19,7 @@ const post = (path, data) => {
  * @param {string} path
  * @returns {Observable<any>}
  */
-const get = (path, token) => {
+const get = (path) => {
     const new_url = `${BASE_URL}${path}`
     return axios.get(new_url || {})
 }

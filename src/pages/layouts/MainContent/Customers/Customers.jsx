@@ -26,6 +26,11 @@ const Customers = () => {
             key: 'last_name',
         },
         {
+            title: 'Phone',
+            dataIndex: 'phone',
+            key: 'phone',
+        },
+        {
             title: 'Wallet',
             dataIndex: 'wallet',
             key: 'wallet',

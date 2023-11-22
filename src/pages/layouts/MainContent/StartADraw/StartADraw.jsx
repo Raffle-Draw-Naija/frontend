@@ -86,11 +86,11 @@ const StartADraw = () => {
     return (
         <div className="d-flex justify-content-center align-items-center main-content">
             <ToastContainer />
-            <Card title="Start a New Raffle" style={{ width: 600 }}>
+            <Card title="Start a New Raffle" className='mt-5' style={{ width: 600, height: "600px", overflow: "auto" }}>
                 <Form
                     layout={formLayout}
                     form={form}
-                    onValuesChange={onFormLayoutChange}
+
                     onFinish={onFinish}
                 >
                     <Form.Item name="category" label="Choose Category" rules={[{ required: true }]} labelCol={{ span: 24 }}>

@@ -17,6 +17,15 @@ class UserService {
     getUser(data) {
         return RequestHandler.post(API_URLS.user.all, data)
     }
+    getAccounts() {
+        return RequestHandler.get(API_URLS.user.getAccounts)
+    }
+    updateStatus(id, data) {
+        return RequestHandler.put(API_URLS.user.updateWithdrawal, id, data)
+    }
+    getPendingWithdrawal() {
+        return RequestHandler.get(API_URLS.user.getPendingWithdrawal)
+    }
 }
 
 export const UserServices = new UserService()

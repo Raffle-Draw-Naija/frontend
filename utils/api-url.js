@@ -5,6 +5,9 @@ export const API_URLS = {
         authenticate: 'login',
         all: 'user/user-information',
         add: 'user/add-fund',
+        getAccounts: 'admin/bank-accounts',
+        getPendingWithdrawal: 'admin/pending-withdrawal',
+        updateWithdrawal: 'admin/update/pending-withdrawal',
     },
     categories: {
         all: 'categories',

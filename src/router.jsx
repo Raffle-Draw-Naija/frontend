@@ -15,6 +15,8 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import CustomerTransactions from "./pages/Layouts/MainContent/CustomerTransactions/CustomerTransactions";
 import Customers from "./pages/Layouts/MainContent/Customers/Customers";
 import Login from "./pages/auth/Login";
+import PendingWithdrawal from "./pages/Layouts/PendingWithdrawal";
+
 
 
 const router = createBrowserRouter([
@@ -35,9 +37,9 @@ const router = createBrowserRouter([
     {
         path: "/",
         element: (
-            <ProtectedRoute>
-                <Layout />
-            </ProtectedRoute>
+
+            <Layout />
+
         ),
         children: [
             {
@@ -85,8 +87,13 @@ const router = createBrowserRouter([
 
             },
             {
-                path: "/wallet",
+                path: "/customer/bank-accounts",
                 element: <BankAccounts />
+
+            },
+            {
+                path: "/customer/pending-withdrawals",
+                element: <PendingWithdrawal />
 
             }
         ],
