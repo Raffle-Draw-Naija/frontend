@@ -1,7 +1,7 @@
 import { Tabs } from 'antd';
 import { CategoryServices } from '../../../../../services/CategoryService';
 import TabPanel from '../../../../components/TabPanel';
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 const onChange = (key) => {
     console.log(key);
@@ -38,9 +38,9 @@ const WinningTags = () => {
             <div className="flex flex-grow-1 flex-1">
                 <div></div>
                 <div>
-                    <NavLink className="btn btn-primary mb-4">
+                    {/* <NavLink className="btn btn-primary mb-4">
                         Create a New Winning Tag
-                    </NavLink>
+                    </NavLink> */}
                 </div>
             </div>
             <Tabs defaultActiveKey="2" items={items} onChange={onChange} />

@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { UserServices } from '../../../services/UserService'
 import "./signin.scss"
 import startup from '../../assets/startup.png'
-import { loginFailure, loginStart, loginSuccess } from '../../redux/userSlice'
+import { loginStart, loginSuccess } from '../../redux/userSlice'
 
 export default function SignIn() {
     const navigate = useNavigate();
