@@ -8,6 +8,7 @@ export const API_URLS = {
         getAccounts: 'admin/bank-accounts',
         getPendingWithdrawal: 'admin/pending-withdrawal',
         updateWithdrawal: 'admin/update/pending-withdrawal',
+        getAgents: 'get-agents',
     },
     categories: {
         all: 'categories',

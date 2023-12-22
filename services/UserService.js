@@ -26,6 +26,9 @@ class UserService {
     getPendingWithdrawal() {
         return RequestHandler.get(API_URLS.user.getPendingWithdrawal)
     }
+    getAgents() {
+        return RequestHandler.get(API_URLS.user.getAgents)
+    }
 }
 
 export const UserServices = new UserService()

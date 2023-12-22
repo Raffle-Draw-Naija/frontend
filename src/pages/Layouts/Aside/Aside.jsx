@@ -31,6 +31,12 @@ const Aside = () => {
                 </li>
 
                 <li>
+                    <NavLink to="/agents" className="nav-link">
+                        <RiSettingsLine />
+                        Agents
+                    </NavLink>
+                </li>
+                <li>
                     <NavLink to="/raffle-draws" className="nav-link">
                         <RiSettingsLine />
                         Active Raffle Draws

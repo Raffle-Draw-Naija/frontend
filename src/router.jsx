@@ -16,6 +16,7 @@ import CustomerTransactions from "./pages/Layouts/MainContent/CustomerTransactio
 import Customers from "./pages/Layouts/MainContent/Customers/Customers";
 import Login from "./pages/auth/Login";
 import PendingWithdrawal from "./pages/Layouts/PendingWithdrawal";
+import Agents from "./pages/Layouts/MainContent/Agents/Agents";
 
 
 
@@ -45,6 +46,11 @@ const router = createBrowserRouter([
             {
                 path: "/dashboard",
                 element: <Dashboard />
+
+            },
+            {
+                path: "/agents",
+                element: <Agents />
 
             },
             {
