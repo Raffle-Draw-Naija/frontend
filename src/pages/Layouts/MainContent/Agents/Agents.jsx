@@ -1,19 +1,19 @@
 import { Col, Row, Table } from 'antd';
 import { useEffect, useState } from 'react';
 import check from "../../../../assets/Icon/check.png"
-import close from "../../../../assets/Icon/close.png"
 import StakeComponent from '../../../../component/StakeComponent';
 import { UserServices } from '../../../../../services/UserService';
+import { useNavigate } from 'react-router-dom';
 const Agents = () => {
     const [dataSource, setDataSource] = useState([])
-
+    const navigate = useNavigate();
 
     useEffect(() => {
         const getDraws = async () => {
             try {
                 const res = await UserServices.getAgents();
                 if (res.data.data) {
-                    setDataSource(res.data.data.stakes)
+                    setDataSource(res.data.data)
                 }
             } catch (error) {
                 console.log(error)
@@ -26,13 +26,13 @@ const Agents = () => {
     const columns = [
         {
             title: 'First Name',
-            dataIndex: 'first_name',
-            key: 'first_name',
+            dataIndex: 'firstName',
+            key: 'firstName',
         },
         {
             title: 'Last Name',
-            dataIndex: 'last_name',
-            key: 'last_name',
+            dataIndex: 'lastName',
+            key: 'lastName',
         },
         {
             title: 'Phone',
@@ -50,25 +50,29 @@ const Agents = () => {
             key: 'balance',
         },
         {
-            title: 'Number Picked',
+            title: 'Action',
             dataIndex: 'numberPicked',
 
             render: (_, record) =>
-                record.win === 1 ? (
+                record.verified !== 2 ? (
                     <div className='d-flex gap-1'>
-                        <img src={check} alt="" style={{ "height": "20px" }} />
-                        <div>{record.numberPicked}</div>
+                        <div> <button type="button" onClick={() => getRaffles(record.identity)} className="btn btn-primary btn-sm">View Raffles</button></div>
+                        {/* <div> <button type="button" className="btn btn-primary">Confirm</button></div> */}
 
                     </div>
                 ) : (
                     <div className='d-flex gap-1'>
-                        <img src={close} alt="" style={{ "height": "20px" }} />
-                        <div>{record.numberPicked}</div>
+                        <img src={check} alt="" style={{ "height": "20px" }} />
                     </div>
 
                 ),
         },
     ];
+
+    const getRaffles = (id) => {
+        console.log("Id is ", id)
+        navigate(`raffle-draws?identity=${id}`)
+    }
     return (
         <div>
 

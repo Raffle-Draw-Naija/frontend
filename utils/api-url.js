@@ -33,5 +33,6 @@ export const API_URLS = {
         all: 'admin/customer/stakes',
         dashboard: 'admin/dashboard',
         searchByDate: 'admin/customer/search-by-date',
+        agentRaffle: 'admin/agent-raffles',
     },
 }

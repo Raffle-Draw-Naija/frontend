@@ -105,6 +105,23 @@ const RaffleStake = () => {
             dataIndex: 'numberPicked',
 
             render: (_, record) =>
+                record.is_open === 1 ? (
+                    <div className='d-flex gap-1'>
+                        Active
+
+                    </div>
+                ) : (
+                    <div className='d-flex gap-1'>
+                        Closed
+                    </div>
+
+                ),
+        },
+        {
+            title: 'Number Picked',
+            dataIndex: 'numberPicked',
+
+            render: (_, record) =>
                 record.win === 1 ? (
                     <div className='d-flex gap-1'>
                         <img src={check} alt="" style={{ "height": "20px" }} />
@@ -125,7 +142,7 @@ const RaffleStake = () => {
             <StakeComponent titleContent="All Stakes" total={total} />
 
             <div className="raffle-stake content">
-                <SearchByDate
+                {/* <SearchByDate
                     search_item={data.search_item}
                     handleWinningTagsChange={handleWinningTagsChange}
                     onInputChange={onInputChange}
@@ -134,7 +151,7 @@ const RaffleStake = () => {
                     onSubmit={onSubmit}
                     onChangeEndDate={onChangeEndDate}
                     onChangeStartDate={onChangeStartDate}
-                />
+                /> */}
                 <Row>
                     <Col span={24}>
                         <Table dataSource={dataSource} columns={columns} />;

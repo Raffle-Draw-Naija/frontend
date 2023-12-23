@@ -17,6 +17,7 @@ import Customers from "./pages/Layouts/MainContent/Customers/Customers";
 import Login from "./pages/auth/Login";
 import PendingWithdrawal from "./pages/Layouts/PendingWithdrawal";
 import Agents from "./pages/Layouts/MainContent/Agents/Agents";
+import AgentRaffleDraws from "./pages/Layouts/MainContent/AgentRaffleDraws/AgentRaffleDraws";
 
 
 
@@ -35,6 +36,8 @@ const router = createBrowserRouter([
             },
         ],
     },
+
+
     {
         path: "/",
         element: (
@@ -50,7 +53,18 @@ const router = createBrowserRouter([
             },
             {
                 path: "/agents",
-                element: <Agents />
+                children: [
+                    {
+                        path: "",
+                        element: <Agents />
+
+                    },
+                    {
+                        path: "raffle-draws",
+                        element: <AgentRaffleDraws />,
+                    },
+
+                ]
 
             },
             {

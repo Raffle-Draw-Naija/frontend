@@ -20,6 +20,9 @@ class StakeService {
     dashboard() {
         return RequestHandler.get(API_URLS.stakes.dashboard)
     }
+    getAgentRaffle(id) {
+        return RequestHandler.single(API_URLS.stakes.agentRaffle, id)
+    }
 }
 
 export const StakeServices = new StakeService()

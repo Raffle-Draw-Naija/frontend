@@ -9,8 +9,12 @@ const CustomerTransactions = () => {
 
     useEffect(() => {
         const getDraws = async () => {
-            const res = await CustomerServices.getTransactions();
-            if (res.data.data) setDataSource(res.data.data)
+            try {
+                const res = await CustomerServices.getTransactions();
+                if (res.data.data) setDataSource(res.data.data)
+            } catch (error) {
+                console.log(error)
+            }
         }
         getDraws()
     }, []);
@@ -20,6 +24,11 @@ const CustomerTransactions = () => {
             title: 'First Name',
             dataIndex: 'first_name',
             key: 'first_name',
+        },
+        {
+            title: 'Narration',
+            dataIndex: 'narration',
+            key: 'narration',
         },
         {
             title: 'Last Name',
