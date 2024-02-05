@@ -1,16 +1,12 @@
-import axios from 'axios'
+import axios from '../utils/AxiosRequest'
 
-axios.defaults.headers.post['Content-Type'] =
-    'application/x-www-form-urlencoded'
 axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*'
 
 const BASE_URL = import.meta.env.VITE_DEV_BASE_URL
 
-console.log('URL IS ', BASE_URL)
 const post = (path, data) => {
     const new_url = `${BASE_URL}${path}`
     // const new_url = `${path}`;
-    console.log(new_url)
     return axios.post(new_url, data || {})
 }
 

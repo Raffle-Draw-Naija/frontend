@@ -20,7 +20,8 @@ const WinningTags = () => {
     }, []);
 
     const items = dataSource && dataSource.map(item => {
-        const id = item.id
+        const id = item.cat_ref
+        console.log("win tag ref is ", item)
         return {
             label: `${item.name}`,
             key: id,

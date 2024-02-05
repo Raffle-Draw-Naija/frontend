@@ -9,7 +9,7 @@ import { useSearchParams } from 'react-router-dom';
 const AgentRaffleDraws = () => {
 
     const [dataSource, setDataSource] = useState([])
-    const [total, setTotal] = useState();
+    const [total, setTotal] = useState()
     const [searchParams, setSearchParams] = useSearchParams();
     const identity = searchParams.get("identity")
 
@@ -19,7 +19,7 @@ const AgentRaffleDraws = () => {
             try {
                 const res = await StakeServices.getAgentRaffle(identity);
                 if (res.data.data) {
-                    setDataSource(res.data.data)
+                    setDataSource(res.data.data.history)
                     setTotal(res.data.data.total)
 
                 }

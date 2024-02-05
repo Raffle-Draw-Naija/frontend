@@ -1,4 +1,4 @@
-import { Col, Row, Table } from 'antd';
+import { Col, Form, Row, Table } from 'antd';
 import SearchByDate from '../../../../components/SearchByDate/SearchByDate';
 import { StakeServices } from '../../../../../services/StakeService';
 import { useEffect, useState } from 'react';
@@ -9,7 +9,7 @@ import StakeComponent from '../../../../component/StakeComponent';
 const RaffleStake = () => {
 
     const [dataSource, setDataSource] = useState([])
-
+    const [onTicketForm] = Form.useForm();
     const [data, setData] = useState({});
     const [winningTags, setWinningTags] = useState();
     const [total, setTotal] = useState();
@@ -41,16 +41,17 @@ const RaffleStake = () => {
     };
     const onSubmit = async () => {
         console.log("data is ", data)
-        try {
-            const res = await StakeServices.searchStakeByDate(data);
-            if (res.data.data) {
-                setDataSource(res.data.data.res)
-                setTotal(res.data.data.total)
+        // try {
+        //     const res = await StakeServices.searchStakeByDate(data);
+        //     if (res.data.data) {
+        //         setDataSource(res.data.data.res)
+        //         setTotal(res.data.data.total)
 
-            }
-        } catch (error) {
-            console.log(error)
-        }
+        //     }
+
+        // }catch(error){
+
+        // }
     }
     useEffect(() => {
         const getDraws = async () => {

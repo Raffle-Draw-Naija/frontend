@@ -13,6 +13,8 @@ const Aside = () => {
     const navigate = useNavigate()
     const navLogout = () => {
         dispatch(logout())
+        localStorage.removeItem("_rtoken")
+        localStorage.removeItem("_token")
         console.log('logout');
         navigate("/login")
 
@@ -37,6 +39,12 @@ const Aside = () => {
                     </NavLink>
                 </li>
                 <li>
+                    <NavLink to="/agents/transactions" className="nav-link">
+                        <RiSettingsLine />
+                        Agent Trans.
+                    </NavLink>
+                </li>
+                <li>
                     <NavLink to="/raffle-draws" className="nav-link">
                         <RiSettingsLine />
                         Active Raffle Draws
@@ -45,7 +53,7 @@ const Aside = () => {
                 <li>
                     <NavLink to="/raffle-stakes" className="nav-link">
                         <BsTicketPerforated />
-                        Raffle Stakes
+                        Customer Raffles
                     </NavLink>
                 </li>
                 <li>
@@ -76,13 +84,7 @@ const Aside = () => {
                 <li>
                     <NavLink to="/customer/pending-withdrawals" className="nav-link">
                         <RiSettingsLine />
-                        Pending Withdrawal
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink to="/settings" className="nav-link">
-                        <RiSettingsLine />
-                        Settings
+                        Withdrawals
                     </NavLink>
                 </li>
 

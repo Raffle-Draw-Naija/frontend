@@ -29,6 +29,9 @@ class UserService {
     getAgents() {
         return RequestHandler.get(API_URLS.user.getAgents)
     }
+    getAgentTransactions() {
+        return RequestHandler.get(API_URLS.user.getAgentTransactions)
+    }
 }
 
 export const UserServices = new UserService()

@@ -11,23 +11,29 @@ const ActiveRaffleDraws = () => {
 
     useEffect(() => {
         const getDraws = async () => {
-            const res = await StakeServices.raffleDraws();
-            if (res.data.data) setDataSource(res.data.data)
+            try {
+                const res = await StakeServices.raffleDraws();
+                if (res.data.data) setDataSource(res.data.data)
+            } catch (error) {
+                console.log("error ", error.response)
+            }
         }
         getDraws()
     }, []);
 
     const notify = () => toast("Raffle Draw Terminated Successfully..");
 
-    const handleStopDraw = async (id) => {
+    const handleStopDraw = async (id, win_no) => {
+        console.log("win is ", win_no)
         try {
             const data = {
-                "stake_platform_id": id
+                "stake_platform_id": id,
+                "win_no": win_no
             }
             const res = await StakeServices.stopDraws(data);
             if (res.status === 200) {
                 setDataSource(res.data.data)
-                notify()
+                // notify()
             }
         } catch (error) {
             console.log(error)
@@ -66,11 +72,11 @@ const ActiveRaffleDraws = () => {
         },
         {
             title: 'Status',
-            dataIndex: 'status',
+            dataIndex: 'is_open',
 
             render: (_, record) =>
-                record.status === 0 ? (
-                    <Popconfirm title="Sure to Close?" key={record.id} onConfirm={() => handleStopDraw(record.id)}>
+                record.is_open == 1 ? (
+                    <Popconfirm title="Sure to Close?" key={record.platform_ref} onConfirm={() => handleStopDraw(record.platform_ref, record.win_nos)}>
                         <a className='btn btn-primary'>Close Raffle</a>
                     </Popconfirm>
                 ) : (

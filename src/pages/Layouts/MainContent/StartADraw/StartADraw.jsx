@@ -49,6 +49,9 @@ const StartADraw = () => {
     const onMaxWinNumberChange = async (e) => {
         setFormData({ ...formData, max_winner_count: e.target.value })
     };
+    const onStakePriceChange = async (e) => {
+        setFormData({ ...formData, stake_price: e.target.value })
+    };
     const onWinningTagChange = async (value) => {
         const res = await CategoryServices.getWinningTags(value);
         setWinningTags(res.data.data)
@@ -102,7 +105,7 @@ const StartADraw = () => {
                         >
                             {
                                 categories && categories.map(category => (
-                                    <Option key={category.id} value={category.id}>{category.name}</Option>
+                                    <Option key={category.cat_ref} value={category.cat_ref}>{category.name}</Option>
 
                                 ))
                             }
@@ -112,12 +115,12 @@ const StartADraw = () => {
                     <Form.Item name="winning_tags" label="Select Winning Tag" rules={[{ required: true }]} labelCol={{ span: 24 }}>
                         <Select
                             placeholder="Select a option and change input text above"
-                            onChange={onWinningTagChange}
                             allowClear
+                            onChange={onWinningTagChange}
                         >
                             {
                                 winningTags && winningTags.map(winningTag => (
-                                    <Option key={winningTag.id} value={winningTag.id}>{winningTag.name}</Option>
+                                    <Option key={winningTag.win_tag_ref} value={winningTag.win_tag_ref}> {winningTag.name}</Option>
                                 ))
                             }
                         </Select>
@@ -155,6 +158,21 @@ const StartADraw = () => {
                             {
                                 required: true,
                                 message: 'Maximum No. of Winners',
+                            },
+                        ]}
+                        labelCol={{ span: 24 }}
+                    >
+                        <Input />
+                    </Form.Item>
+                    <Form.Item
+                        label="Stake Price"
+                        name="stake_price"
+                        onChange={onStakePriceChange}
+                        value={setFormData || ''}
+                        rules={[
+                            {
+                                required: true,
+                                message: 'Stake Price',
                             },
                         ]}
                         labelCol={{ span: 24 }}

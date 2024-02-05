@@ -18,13 +18,16 @@ import Login from "./pages/auth/Login";
 import PendingWithdrawal from "./pages/Layouts/PendingWithdrawal";
 import Agents from "./pages/Layouts/MainContent/Agents/Agents";
 import AgentRaffleDraws from "./pages/Layouts/MainContent/AgentRaffleDraws/AgentRaffleDraws";
+import AgentTransactions from "./pages/Layouts/MainContent/agentTransactions/AgentTransactions";
+import AgentRaffles from "./pages/Layouts/MainContent/AgentRaffles/AgentRaffles";
+import Withdrawal from "./pages/Layouts/MainContent/Withdrawal/Withdrawal";
 
 
 
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <Index />,
+        element: <SignIn />,
     },
     {
         path: "/",
@@ -41,9 +44,9 @@ const router = createBrowserRouter([
     {
         path: "/",
         element: (
-
-            <Layout />
-
+            <ProtectedRoute>
+                <Layout />
+            </ProtectedRoute>
         ),
         children: [
             {
@@ -62,6 +65,16 @@ const router = createBrowserRouter([
                     {
                         path: "raffle-draws",
                         element: <AgentRaffleDraws />,
+                    },
+
+                    {
+                        path: "transactions",
+                        element: <AgentTransactions />,
+                    },
+
+                    {
+                        path: "raffles",
+                        element: <AgentRaffles />,
                     },
 
                 ]
@@ -113,7 +126,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/customer/pending-withdrawals",
-                element: <PendingWithdrawal />
+                element: <Withdrawal />
 
             }
         ],

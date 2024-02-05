@@ -9,6 +9,7 @@ export const API_URLS = {
         getPendingWithdrawal: 'admin/pending-withdrawal',
         updateWithdrawal: 'admin/update/pending-withdrawal',
         getAgents: 'get-agents',
+        getAgentTransactions: 'admin/agent/transactions',
     },
     categories: {
         all: 'categories',

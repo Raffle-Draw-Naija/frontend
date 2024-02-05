@@ -11,25 +11,8 @@ import BarChart from '../../../../components/BarChart';
 import PieChart from '../../../../components/PieChart';
 import { UserData } from '../../../../components/data';
 import LineChart from '../../../../components/LineChart';
-import { onMessageListener, requestForToken } from '../../../../firebase';
-import { getToken } from 'firebase/messaging';
 
 const Dashboard = () => {
-
-    const [show, setShow] = useState(false);
-    const [notification, setNotification] = useState({ title: 'Title', body: 'Body' });
-    const [isTokenFound, setTokenFound] = useState(false);
-
-    useEffect(() => {
-        requestForToken();
-    }, [])
-
-    onMessageListener().then(payload => {
-        getToken(setTokenFound);
-        setShow(true);
-        setNotification({ title: payload.notification.title, body: payload.notification.body })
-        console.log(payload);
-    }).catch(err => console.log('failed: ', err));
 
 
     const [dataSource, setDataSource] = useState([])
@@ -72,7 +55,7 @@ const Dashboard = () => {
         const dashboard = async () => {
             try {
                 const res = await StakeServices.dashboard();
-                console.log(res.data.data.customerGraphData)
+                console.log(res.data.customerGraphData)
                 if (res.data.data) setDataSource(res.data.data)
                 setUserData({
                     labels: res.data.data.stakesGraphData.map((data) => data.year),
@@ -166,7 +149,7 @@ const Dashboard = () => {
 
                                 <div className='right'>
 
-                                    <header>Total No. of Stakes</header>
+                                    <header>Total No. of Cust. Stakes</header>
                                     <div className='number'>
                                         {dataSource.stakesCount}
                                     </div>
@@ -188,9 +171,9 @@ const Dashboard = () => {
 
                                 <div className='right'>
 
-                                    <header>Total Fund Disbursed</header>
+                                    <header>Total Agent Stakes</header>
                                     <div className='number'>
-                                        {dataSource.stakesCount}
+                                        {dataSource.agentStake}
                                     </div>
                                 </div>
                             </Col>
@@ -210,10 +193,11 @@ const Dashboard = () => {
 
                                 <div className='right'>
 
-                                    <header>Total Fund Made</header>
+                                    <header>Total Agent Trans.</header>
 
                                     <div className='number'>
-                                        43039
+                                        {dataSource.agentTrans}
+
                                     </div>
                                 </div>
                             </Col>

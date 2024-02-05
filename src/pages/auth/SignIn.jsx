@@ -47,6 +47,8 @@ export default function SignIn() {
 
             const res = await UserServices.authenticate(formData)
             dispatch(loginSuccess(res.data.data))
+            localStorage.setItem("_token", res.data.data.token);
+            localStorage.setItem("_rtoken", res.data.data.refreshToken);
             navigate("/dashboard")
         } catch (error) {
             if (!error) {

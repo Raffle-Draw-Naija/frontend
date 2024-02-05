@@ -31,7 +31,7 @@ const TabPanel = ({ id }) => {
                                 </p>
                             </div>
                             <div className=''>
-                                <NavLink to={`/winning-tag/edit/${winningTag.id}`}>
+                                <NavLink to={`/winning-tag/edit/${winningTag.win_tag_ref}`}>
                                     Edit
                                 </NavLink>
                             </div>

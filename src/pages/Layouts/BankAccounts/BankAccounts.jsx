@@ -34,18 +34,13 @@ const BankAccounts = () => {
         },
         {
             title: 'Account Number',
-            dataIndex: 'account_no',
-            key: 'account_no',
+            dataIndex: 'account_number',
+            key: 'account_number',
         },
         {
             title: 'Account Name',
             dataIndex: 'account_name',
             key: 'account_name',
-        },
-        {
-            title: 'Date',
-            dataIndex: 'created_at',
-            key: 'created_at',
         },
     ];
     return (
